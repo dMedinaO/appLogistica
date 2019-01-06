@@ -82,7 +82,6 @@
     <!--js para handler de usuario -->
     <script src="../js/choferes/loadData.js"></script>
 
-    <script src="../js/choferes/loadDataVehiculo.js"></script>
 </head>
 
 <!--TIPS-->
@@ -98,7 +97,7 @@
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">
+                    <a href="../" class="navbar-brand">
                         <img src="../img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
                             <span class="brand-text">App Logística</span>
@@ -201,7 +200,6 @@
                               <th class="min-tablet">Teléfono</th>
                               <th class="min-tablet">Name User</th>
                               <th class="min-tablet">Password</th>
-                              <th class="min-tablet">Vehículo</th>
                               <th class="min-tablet">Modificado</th>
                               <th class="min-tablet">Opciones</th>
                               </tr>
@@ -297,6 +295,14 @@
                                   <li>
           						                <a href="../choferes/">
           						                    <i class="fa fa-user"></i>
+          						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
+                                  <li>
+          						                <a href="../vehiculosAsignados/">
+          						                    <i class="fa fa-car"></i>
           						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
           						                </a>
 
@@ -449,17 +455,6 @@
                  </div>
                </div>
 
-               <div class="form-group">
- 								<label class="control-label col-md-3 col-sm-3 col-lg-3" for="vehiculo">Vehículo <span class="required">*</span>
- 								</label>
- 								<div class="col-md-7 col-sm-7 col-lg-7 col-xs-12">
- 									<div class="selector-vehiculo">
- 										<select id="vehiculo" class="form-control" required>
- 										</select>
- 									</div>
- 								</div>
- 							</div>
-
                <div class="ln_solid"></div>
 
 
@@ -568,17 +563,6 @@
                       <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
                     </div>
                   </div>
-
-                  <div class="form-group">
-    								<label class="control-label col-md-3 col-sm-3 col-lg-3" for="vehiculo">Vehículo <span class="required">*</span>
-    								</label>
-    								<div class="col-md-7 col-sm-7 col-lg-7 col-xs-12">
-    									<div class="selector-vehiculo">
-    										<select id="vehiculo" class="form-control" required>
-    										</select>
-    									</div>
-    								</div>
-    							</div>
 
      						  <div class="ln_solid"></div>
      						  <div class="form-group">

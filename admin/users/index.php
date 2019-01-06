@@ -96,7 +96,7 @@
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">
+                    <a href="../" class="navbar-brand">
                         <img src="../img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
                             <span class="brand-text">App Logística</span>

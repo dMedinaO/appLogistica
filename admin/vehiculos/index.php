@@ -96,7 +96,7 @@
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">
+                    <a href="../" class="navbar-brand">
                         <img src="../img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
                             <span class="brand-text">App Logística</span>
@@ -292,6 +292,14 @@
                                   <li>
           						                <a href="../choferes/">
           						                    <i class="fa fa-user"></i>
+          						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
+                                  <li>
+          						                <a href="../vehiculosAsignados/">
+          						                    <i class="fa fa-car"></i>
           						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
           						                </a>
 

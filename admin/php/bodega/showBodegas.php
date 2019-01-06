@@ -4,7 +4,7 @@
 	include ("../connection.php");
 
 
-	$query = "select * from bodega";
+	$query = "select * from bodega join direccionBodega on (bodega.idbodega = direccionBodega.bodega)";
 	$resultado = mysqli_query($conexion, $query);
 
 	if (!$resultado){

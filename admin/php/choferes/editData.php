@@ -9,7 +9,6 @@
 	$username = $_REQUEST['username'];
 	$phone = $_REQUEST['phone'];
 	$email = $_REQUEST['email'];
-	$vehiculo = $_REQUEST['vehiculo'];
 
 	$query = "update chofer set chofer.rutChofer = $rut, chofer.nombre = '$name', chofer.fechaNaciemiento = '$fecha', chofer.modifiedChofer = NOW() where chofer.rutChofer = $oldRut";
 	$informacion["query1"] = $query;
@@ -19,8 +18,8 @@
 	$informacion["query3"] = $query3;
 
 	$resultado = mysqli_query($conexion, $query);
-	$resultado2 = mysqli_query($conexion, $query2);
-	$resultado3 = mysqli_query($conexion, $query3);
+	$resultado = mysqli_query($conexion, $query2);
+	$resultado = mysqli_query($conexion, $query3);
 
 	$informacion["response"] = verificar_resultado( $resultado, $informacion);
 	echo json_encode($informacion);

@@ -46,7 +46,6 @@ $(window).on('load', function() {
 						{"data":"numberDevice"},
 						{"data":"nameUser"},
 						{"data":"password"},
-						{"data":"vehiculo_patente"},
 						{"data":"modifiedChofer"},
 						{"defaultContent": "<button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
 					]
@@ -103,7 +102,6 @@ $(window).on('load', function() {
 			var username = $("#frmEditar #username").val();
 			var phone = $("#frmEditar #phone").val();
 			var email = $("#frmEditar #email").val();
-			var vehiculo = $("#frmEditar #vehiculo").val();
 			var oldRut = $("#frmEditar #oldRut").val();
 
 			$.ajax({
@@ -116,7 +114,6 @@ $(window).on('load', function() {
 					"username"   : username,
 					"phone" : phone,
 					"email" : email,
-					"vehiculo": vehiculo,
 					"oldRut": oldRut
 				}
 
@@ -138,7 +135,6 @@ $(window).on('load', function() {
 			var username = $("#frmAgregar #username").val();
 			var phone = $("#frmAgregar #phone").val();
 			var email = $("#frmAgregar #email").val();
-			var vehiculo = $("#frmAgregar #vehiculo").val();
 
 			$.ajax({
 				method: "POST",
@@ -149,8 +145,7 @@ $(window).on('load', function() {
 						"fecha"   : fecha,
 						"username"   : username,
 						"phone" : phone,
-						"email" : email,
-						"vehiculo": vehiculo
+						"email" : email
 					}
 
 			}).done( function( info ){

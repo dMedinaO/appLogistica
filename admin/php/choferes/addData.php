@@ -9,7 +9,6 @@
 	$username = $_REQUEST['username'];
 	$phone = $_REQUEST['phone'];
 	$email = $_REQUEST['email'];
-	$vehiculo = $_REQUEST['vehiculo'];
 
 	$query = "insert into chofer values ($rut, '$name', '$fecha', NOW(), NOW())";
 	$resultado = mysqli_query($conexion, $query);
@@ -24,10 +23,6 @@
 		#agregamos el dispositivo
 		$query = "insert into device values ($rut, '$phone', '-', $rut)";
 		$resultado = mysqli_query($conexion, $query);
-
-		#asignamos el vehiculo
-		$query = "insert into vehiculoAsignado values ('$vehiculo', $rut, NOW())";
-		$informacion = verificar_resultado( $resultado, $conexion, $query);
 
 		echo json_encode($informacion);
 

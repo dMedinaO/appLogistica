@@ -357,6 +357,15 @@
 
           						            </li>
 
+                                  <li>
+          						                <a href="../vehiculosAsignados/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
+
                                   <li class="list-header">Clientes</li>
 
                                   <li>

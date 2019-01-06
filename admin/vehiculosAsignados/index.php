@@ -80,7 +80,7 @@
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
 
     <!--js para handler de usuario -->
-    <script src="../js/clientes/loadData.js"></script>
+    <script src="../js/choferes/loadData.js"></script>
 
 </head>
 
@@ -97,7 +97,7 @@
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="../" class="navbar-brand">
+                    <a href="" class="navbar-brand">
                         <img src="../img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
                             <span class="brand-text">App Logística</span>
@@ -171,7 +171,7 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Clientes Disponibles en el Sistema</h1>
+                      <h1 class="page-header text-overflow">Choferes Disponibles en el Sistema</h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -186,16 +186,20 @@
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
                       <div id="demo-custom-toolbar2" class="table-toolbar-left">
-                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Agregar cliente</button>
+                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Agregar Chofer</button>
                       </div>
 
                       <div class="panel-body">
                         <table id="bodegaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
+                              <th class="min-tablet">Chofer</th>
                               <th class="min-tablet">Rut</th>
-                              <th class="min-tablet">Nombre</th>
-                              <th class="min-tablet">Creado</th>
+                              <th class="min-tablet">Fecha Nacimiento</th>
+                              <th class="min-tablet">Email</th>
+                              <th class="min-tablet">Teléfono</th>
+                              <th class="min-tablet">Name User</th>
+                              <th class="min-tablet">Password</th>
                               <th class="min-tablet">Modificado</th>
                               <th class="min-tablet">Opciones</th>
                               </tr>
@@ -296,15 +300,6 @@
 
           						            </li>
 
-                                  <li>
-          						                <a href="../vehiculosAsignados/">
-          						                    <i class="fa fa-car"></i>
-          						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-
                                   <li class="list-header">Clientes</li>
 
                                   <li>
@@ -396,7 +391,7 @@
            <div class="modal-content">
              <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Cliente</h4>
+               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Chofer</h4>
              </div>
              <div class="modal-body">
 
@@ -406,7 +401,7 @@
                  </label>
 
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre cliente">
+                   <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre chofer">
                  </div>
                </div>
 
@@ -415,7 +410,40 @@
                  </label>
 
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut cliente)">
+                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut (sin puntos y sin digito verificador)">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha Nacimiento <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="fecha" required="required" class="form-control col-md-7 col-xs-12" placeholder="YYYY-MM-DD">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                 </label>
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Nombre de usuario">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                 </label>
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Teléfono">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                 </label>
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
                  </div>
                </div>
 
@@ -448,10 +476,10 @@
              <div class="modal-content">
                <div class="modal-header">
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Cliente</h4>
+                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Chofer</h4>
                </div>
                <div class="modal-body">
-                 ¿Está seguro de eliminar el cliente seleccionado?<strong data-name=""></strong>
+                 ¿Está seguro de eliminar el chofer seleccionado?<strong data-name=""></strong>
                </div>
                <div class="modal-footer">
                  <button type="button" id="eliminar-usuario" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
@@ -473,7 +501,7 @@
      					<div class="modal-content">
      						<div class="modal-header">
      							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-     							<h4 class="modal-title" id="myModalLabelEdit">Editar Cliente Seleccionado</h4>
+     							<h4 class="modal-title" id="myModalLabelEdit">Editar Chofer Seleccionado</h4>
      						</div>
      						<div class="modal-body">
 
@@ -482,7 +510,7 @@
                     </label>
 
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre cliente">
+                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre chofer">
                     </div>
                   </div>
 
@@ -491,7 +519,40 @@
                     </label>
 
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut cliente)">
+                      <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut (sin puntos y sin digito verificador)">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha Nacimiento <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="fecha" required="required" class="form-control col-md-7 col-xs-12" placeholder="YYYY-MM-DD">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                    </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Nombre de usuario">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                    </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Teléfono">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                    </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
                     </div>
                   </div>
 
