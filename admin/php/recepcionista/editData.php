@@ -8,8 +8,9 @@
 	$phone = $_REQUEST['phone'];
 	$email = $_REQUEST['email'];
 	$username = $_REQUEST['username'];
+	$cargo = $_REQUEST['cargo'];
 
-	$query = "update cliente set cliente.rutCliente = '$rut', cliente.nombreCliente = '$name', cliente.modifiedClient = NOW() where cliente.rutCliente = '$oldRut'";
+	$query = "update receptoresProducto set receptoresProducto.idreceptoresProducto = $rut, receptoresProducto.nombreReceptor = '$name', receptoresProducto.modifiedReceptor = NOW(), receptoresProducto.cargo='$cargo' where receptoresProducto.idreceptoresProducto = $oldRut";
 	$informacion["query1"] = $query;
 	$query2 = "update user set user.nameUser = '$username', user.email='$email', user.iduser = $rut, user.modifiedUser= NOW() where user.iduser = $oldRut";
 	$informacion["query2"] = $query2;

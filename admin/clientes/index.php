@@ -195,6 +195,9 @@
                             <tr>
                               <th class="min-tablet">Rut</th>
                               <th class="min-tablet">Nombre</th>
+                              <th class="min-tablet">UserName</th>
+                              <th class="min-tablet">Teléfono</th>
+                              <th class="min-tablet">E-Mail</th>
                               <th class="min-tablet">Creado</th>
                               <th class="min-tablet">Modificado</th>
                               <th class="min-tablet">Opciones</th>
@@ -419,11 +422,38 @@
                </div>
 
                <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de usuario">
+                 </div>
+               </div>
+
+               <div class="form-group">
                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
                  </label>
 
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut cliente)">
+                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut cliente">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese teléfono">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-Mail <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese correo electrónico">
                  </div>
                </div>
 
@@ -500,6 +530,33 @@
 
                     <div class="col-md-9 col-sm-9 col-xs-12">
                       <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut cliente)">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de usuario">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese teléfono">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-Mail <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese correo electrónico">
                     </div>
                   </div>
 

@@ -29,11 +29,18 @@ function getQuerystring(key, default_) {
 	else
 		return qs[1];
 };
+
+    // DATA TABLES
+    // =================================================================
+    // Require Data Tables
+    // -----------------------------------------------------------------
+    // http://www.datatables.net/
+    // =================================================================
+
     $.fn.DataTable.ext.pager.numbers_length = 5;
 
     //listamos los datos...
 		var listar = function(){
-			var client = getQuerystring('client');
 	    var t = $('#bodegaData').DataTable({
 	        "responsive": true,
 	        "language": idioma_espanol,
@@ -42,50 +49,45 @@ function getQuerystring(key, default_) {
 					"destroy":true,
 					"ajax":{
 						"method":"POST",
-						"url": "../php/sucursales/showData.php?client="+client
+						"url": "../php/recepcionista/showData.php"
 					},
 
 					"columns":[
-						{"data":"region"},
-						{"data":"comuna"},
-						{"data":"ciudad"},
-						{"data":"direccionValue"},
-						{"data":"createdDireccion"},
-						{"data":"modifiedDireccion"},
-						{"defaultContent": "<button type='button' class='recepcionistas btn btn-success'><i class='fa fa-users'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
+						{"data":"idreceptoresProducto"},
+						{"data":"nombreReceptor"},
+						{"data":"cargo"},
+						{"data":"nameUser"},
+						{"data":"numberDevice"},
+						{"data":"email"},
+						{"data":"createdReceptor"},
+						{"data":"modifiedReceptor"},
+						{"defaultContent": " <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
 					]
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
 
 		obtener_id_eliminar("#bodegaData tbody", t);
 		obtener_data_editar("#bodegaData tbody", t);
-		obtener_data_redireccionar("#bodegaData tbody", t);
-	}
 
-	var obtener_data_redireccionar = function(tbody, table){
-		$(tbody).on("click", "button.recepcionistas", function(){
-			var data = table.row( $(this).parents("tr") ).data();
-			var iddireccion = data.iddireccion;
-			var client = getQuerystring('client');
-			location.href="../recepcionista/?sucursal="+iddireccion+"&client="+client;
-		});
 	}
 
 	var obtener_id_eliminar = function(tbody, table){
 		$(tbody).on("click", "button.eliminar", function(){
 			var data = table.row( $(this).parents("tr") ).data();
-			var iduser = $("#frmEliminar #iduser").val( data.iddireccion );
+			var iduser = $("#frmEliminar #iduser").val( data.idreceptoresProducto );
 		});
 	}
 
 	var obtener_data_editar = function(tbody, table){
 		$(tbody).on("click", "button.editar", function(){
 			var data = table.row( $(this).parents("tr") ).data();
-			var comuna = $("#frmEditar #comuna").val(data.comuna);
-			var region = $("#frmEditar #region").val(data.region);
-			var ciudad = $("#frmEditar #ciudad").val(data.ciudad);
-			var direccion = $("#frmEditar #direccion").val(data.direccionValue);
-			var oldRut = $("#frmEditar #oldRut").val(data.iddireccion);
+			var name = $("#frmEditar #name").val(data.nombreReceptor);
+			var username = $("#frmEditar #username").val(data.nameUser);
+			var cargo = $("#frmEditar #cargo").val(data.cargo);
+			var rut = $("#frmEditar #rut").val(data.idreceptoresProducto);
+			var phone = $("#frmEditar #phone").val(data.numberDevice);
+			var email = $("#frmEditar #email").val(data.email);
+			var oldRut = $("#frmEditar #oldRut").val(data.idreceptoresProducto);
 		});
 	}
 
@@ -94,7 +96,7 @@ function getQuerystring(key, default_) {
 			var iduser = $("#frmEliminar #iduser").val();
 			$.ajax({
 				method:"POST",
-				url: "../php/sucursales/removeData.php",
+				url: "../php/recepcionista/removeData.php",
 				data: {
 						"iduser": iduser
 					  }
@@ -109,27 +111,31 @@ function getQuerystring(key, default_) {
 	var editar = function(){
 		$("#editar-usuario").on("click", function(){
 
-			var comuna = $("#frmEditar #comuna").val();
-			var region = $("#frmEditar #region").val();
-			var ciudad = $("#frmEditar #ciudad").val();
-			var direccion = $("#frmEditar #direccion").val();
-			var iddireccion = $("#frmEditar #oldRut").val();
+			var name = $("#frmEditar #name").val();
+			var username = $("#frmEditar #username").val();
+			var cargo = $("#frmEditar #cargo").val();
+			var rut = $("#frmEditar #rut").val();
+			var phone = $("#frmEditar #phone").val();
+			var email = $("#frmEditar #email").val();
+			var oldRut = $("#frmEditar #oldRut").val();
 
 			$.ajax({
 				method: "POST",
-				url: "../php/sucursales/editData.php",
+				url: "../php/recepcionista/editData.php",
 				data: {
-					"comuna"   : comuna,
-					"region"   : region,
-					"ciudad": ciudad,
-					"direccion" : direccion,
-					"iddireccion" : iddireccion
+					"name"   : name,
+					"rut"   : rut,
+					"oldRut": oldRut,
+					"phone": phone,
+					"email": email,
+					"username": username,
+					"cargo": cargo
 				}
 
 			}).done( function( info ){
 
 				var json_info = JSON.parse( info );
-				mostrar_mensaje( json_info );
+				//mostrar_mensaje( json_info );
 				location.reload(true);
 			});
 		});
@@ -138,21 +144,28 @@ function getQuerystring(key, default_) {
 	var guardar = function(){
 		$("#agregar-bodega").on("click", function(){
 
-			var comuna = $("#frmAgregar #comuna").val().toUpperCase();
-			var region = $("#frmAgregar #region").val().toUpperCase();
-			var ciudad = $("#frmAgregar #ciudad").val().toUpperCase();
-			var direccion = $("#frmAgregar #direccion").val().toUpperCase();
+			var name = $("#frmAgregar #name").val();
+			var rut = $("#frmAgregar #rut").val();
+			var phone = $("#frmAgregar #phone").val();
+			var email = $("#frmAgregar #email").val();
+			var username = $("#frmAgregar #username").val();
+			var cargo = $("#frmAgregar #cargo").val();
+			var sucursal = getQuerystring('sucursal');
 			var client = getQuerystring('client');
 
 			$.ajax({
 				method: "POST",
-				url: "../php/sucursales/addData.php",
+				url: "../php/recepcionista/addData.php",
 				data: {
-						"region"   : region,
-						"comuna"   : comuna,
-						"ciudad"   : ciudad,
-						"direccion"   : direccion,
-						"client"   : client
+						"name"   : name,
+						"rut"   : rut,
+						"phone"   : phone,
+						"email"   : email,
+						"username"   : username,
+						"cargo"   : cargo,
+						"sucursal" : sucursal,
+						"client" : client
+
 					}
 
 			}).done( function( info ){

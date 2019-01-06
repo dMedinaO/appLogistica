@@ -41,6 +41,9 @@ $(window).on('load', function() {
 					"columns":[
 						{"data":"rutCliente"},
 						{"data":"nombreCliente"},
+						{"data":"nameUser"},
+						{"data":"numberDevice"},
+						{"data":"email"},
 						{"data":"createdClient"},
 						{"data":"modifiedClient"},
 						{"defaultContent": " <button type='button' class='sucursales btn btn-success'><i class='fa fa-map'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
@@ -72,7 +75,10 @@ $(window).on('load', function() {
 		$(tbody).on("click", "button.editar", function(){
 			var data = table.row( $(this).parents("tr") ).data();
 			var name = $("#frmEditar #name").val(data.nombreCliente);
+			var username = $("#frmEditar #username").val(data.nameUser);
 			var rut = $("#frmEditar #rut").val(data.rutCliente);
+			var phone = $("#frmEditar #phone").val(data.numberDevice);
+			var email = $("#frmEditar #email").val(data.email);
 			var oldRut = $("#frmEditar #oldRut").val(data.rutCliente);
 		});
 	}
@@ -100,6 +106,9 @@ $(window).on('load', function() {
 			var name = $("#frmEditar #name").val();
 			var rut = $("#frmEditar #rut").val();
 			var oldRut = $("#frmEditar #oldRut").val();
+			var phone = $("#frmEditar #phone").val();
+			var email = $("#frmEditar #email").val();
+			var username = $("#frmEditar #username").val();
 
 			$.ajax({
 				method: "POST",
@@ -107,7 +116,10 @@ $(window).on('load', function() {
 				data: {
 					"name"   : name,
 					"rut"   : rut,
-					"oldRut": oldRut
+					"oldRut": oldRut,
+					"phone": phone,
+					"email": email,
+					"username": username
 				}
 
 			}).done( function( info ){
@@ -124,18 +136,19 @@ $(window).on('load', function() {
 
 			var name = $("#frmAgregar #name").val();
 			var rut = $("#frmAgregar #rut").val();
-			var fecha = $("#frmAgregar #fecha").val();
-			var username = $("#frmAgregar #username").val();
 			var phone = $("#frmAgregar #phone").val();
 			var email = $("#frmAgregar #email").val();
-			var vehiculo = $("#frmAgregar #vehiculo").val();
+			var username = $("#frmAgregar #username").val();
 
 			$.ajax({
 				method: "POST",
 				url: "../php/clientes/addData.php",
 				data: {
 						"name"   : name,
-						"rut"   : rut
+						"rut"   : rut,
+						"phone"   : phone,
+						"email"   : email,
+						"username"   : username
 					}
 
 			}).done( function( info ){

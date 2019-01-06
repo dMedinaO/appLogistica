@@ -78,6 +78,10 @@
     <link href="../plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
     <!--Premium Line Icons [ OPTIONAL ]-->
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+
+    <!--js para handler de usuario -->
+    <script src="../js/recepcionista/loadData.js"></script>
+
 </head>
 
 <!--TIPS-->
@@ -130,7 +134,7 @@
                                     <!--<img class="img-circle img-user media-object" src="img/profile-photos/1.png" alt="Profile Picture">-->
                                     <i class="demo-pli-male"></i>
                                 </span>
-                                <div class="username hidden-xs">Root User</div>
+                                <div class="username hidden-xs">Admin User</div>
                             </a>
 
 
@@ -167,7 +171,12 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Roles Disponibles en el Sistema</h1>
+                      <h1 class="page-header text-overflow">
+                        <?php
+                          $client = $_REQUEST['sucursal'];
+                          echo "Recepcionistas para Sucursal $client";
+                        ?>
+                      </h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -178,114 +187,33 @@
               <!--Page content-->
               <!--===================================================-->
               <div id="page-content">
-
-        <div class="row">
-
-          <div class="col-sm-6 col-md-6">
-
-                  <!-- Contact Widget -->
-                  <!---------------------------------->
-                  <div class="panel pos-rel">
-                      <div class="pad-all text-center">
-                          <div class="widget-control">
-
-                          </div>
-                          <a href="#">
-                              <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/11.png">
-                              <p class="text-lg text-semibold mar-no text-main">ROOT</p>
-
-                              <p class="text-sm">Administrador del sistema. Posee todas las facultades asociadas al manejo de información relevante en
-                                el sistema. Además de acciones asociadas a la configuración de mensajes, envío de notificaciones, etc.</p>
-                          </a>
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel">
+                      <div id="demo-custom-toolbar2" class="table-toolbar-left">
+                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Agregar Recepcionista</button>
                       </div>
+
+                      <div class="panel-body">
+                        <table id="bodegaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th class="min-tablet">Rut</th>
+                              <th class="min-tablet">Nombre</th>
+                              <th class="min-tablet">Cargo</th>
+                              <th class="min-tablet">UserName</th>
+                              <th class="min-tablet">Teléfono</th>
+                              <th class="min-tablet">E-Mail</th>
+                              <th class="min-tablet">Creado</th>
+                              <th class="min-tablet">Modificado</th>
+                              <th class="min-tablet">Opciones</th>
+                              </tr>
+                            </thead>
+                          </table>
+                      </div>
+                    </div>
                   </div>
-                  <!---------------------------------->
-            </div>
-
-            <div class="col-sm-6 col-md-6">
-
-                    <!-- Contact Widget -->
-                    <!---------------------------------->
-                    <div class="panel pos-rel">
-                        <div class="pad-all text-center">
-                            <div class="widget-control">
-
-                            </div>
-                            <a href="#">
-                                <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/9.png">
-                                <p class="text-lg text-semibold mar-no text-main">BODEGUERO</p>
-
-                                <p class="text-sm">Encargado de gestionar las rutas en el sistema, ingresar pedidos y monitorear el estado de éstos,
-                                  corroborar si los pedidos han sido entregados y visualizar a los choferes para determinar en qué parte de la ruta se encuentran.</p>
-                            </a>
-                        </div>
-                    </div>
-                    <!---------------------------------->
-            </div>
-
-            <div class="col-sm-6 col-md-6">
-
-                    <!-- Contact Widget -->
-                    <!---------------------------------->
-                    <div class="panel pos-rel">
-                        <div class="pad-all text-center">
-                            <div class="widget-control">
-
-                            </div>
-                            <a href="#">
-                                <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/1.png">
-                                <p class="text-lg text-semibold mar-no text-main">CHOFER</p>
-
-                                <p class="text-sm">Encargado de despachar los productos y repartir la mercadería a cada cliente, debe registrar los pedidos que entregue
-                                  y los mensajes que estos posean, además de enviar fotos a través de la app que corroboren que el trabajo se efectuó.</p>
-                            </a>
-                        </div>
-                    </div>
-                    <!---------------------------------->
-              </div>
-
-              <div class="col-sm-6 col-md-6">
-
-                      <!-- Contact Widget -->
-                      <!---------------------------------->
-                      <div class="panel pos-rel">
-                          <div class="pad-all text-center">
-                              <div class="widget-control">
-
-                              </div>
-                              <a href="#">
-                                  <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/2.png">
-                                  <p class="text-lg text-semibold mar-no text-main">CLIENTE</p>
-
-                                  <p class="text-sm">Encargado de visualizar sus pedidos y dejar comentarios sobre los productos recibidos, puede monitorear el estado
-                                  de la ruta y ver dónde viene su pedido y el estado de éste durante el día.</p>
-                              </a>
-                          </div>
-                      </div>
-                      <!---------------------------------->
                 </div>
-
-                <div class="col-sm-6 col-md-6">
-
-                        <!-- Contact Widget -->
-                        <!---------------------------------->
-                        <div class="panel pos-rel">
-                            <div class="pad-all text-center">
-                                <div class="widget-control">
-
-                                </div>
-                                <a href="#">
-                                    <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/3.png">
-                                    <p class="text-lg text-semibold mar-no text-main">RECEPCIONISTA</p>
-
-                                    <p class="text-sm">Encargado de recibir pedidos, dejar comentarios, etc. Está asociado a una sucursal que posee un cliente. </p>
-                                </a>
-                            </div>
-                        </div>
-                        <!---------------------------------->
-                  </div>
-        </div>
-
               </div>
               <!--===================================================-->
               <!--End page content-->
@@ -317,7 +245,7 @@
                                             <span class="pull-right dropdown-toggle">
                                                 <i class="dropdown-caret"></i>
                                             </span>
-                                            <p class="mnp-name">Root</p>
+                                            <p class="mnp-name">Administrador</p>
                                         </a>
                                     </div>
                                     <div id="profile-nav" class="collapse list-group bg-trans">
@@ -424,6 +352,7 @@
 
 
 						            </ul>
+
                     <!--================================-->
                     <!--End menu-->
 
@@ -455,7 +384,7 @@
             <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-            <p class="pad-lft">&#0169; 2018 David Medina Ortiz, david.medina@cebib.cl</p>
+            <p class="pad-lft">&#0169; 2019 David Medina Ortiz, david.medina@cebib.cl</p>
 
 
 
@@ -477,5 +406,199 @@
     <!--===================================================-->
     <!-- END OF CONTAINER -->
 
-</body>
+    <!-- modal section -->
+    <!-- modal para agregar-->
+     <div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Cliente</h4>
+             </div>
+             <div class="modal-body">
+
+             <form id="frmAgregar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre recepcionista">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cargo">Cargo <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="cargo" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre en la empresa">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de usuario">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut recepcionista">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese teléfono">
+                 </div>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-Mail <span class="required">*</span>
+                 </label>
+
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                   <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese correo electrónico">
+                 </div>
+               </div>
+
+               <div class="ln_solid"></div>
+
+
+             </div>
+
+             <div class="modal-footer">
+               <div class="form-group">
+                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                   <button type="reset" class="btn btn-primary">Resetear</button>
+                   <button type="button" id="agregar-bodega" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </form>
+     </div>
+
+     <!-- modal para eliminar -->
+     <div>
+       <form id="frmEliminar" action="" method="POST">
+         <input type="hidden" id="iduser" name="iduser" value="">
+         <!-- Modal -->
+         <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Cliente</h4>
+               </div>
+               <div class="modal-body">
+                 ¿Está seguro de eliminar el cliente seleccionado?<strong data-name=""></strong>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" id="eliminar-usuario" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- Modal -->
+       </form>
+     </div>
+
+     <!-- modal para editar un nuevo elemento -->
+     <div>
+     	<form id="frmEditar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+     		<input type="hidden" id="oldRut" name="oldRut" value="">
+     		<div class="modal fade" id="myModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="true">
+     				<div class="modal-dialog">
+     					<div class="modal-content">
+     						<div class="modal-header">
+     							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     							<h4 class="modal-title" id="myModalLabelEdit">Editar Cliente Seleccionado</h4>
+     						</div>
+     						<div class="modal-body">
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre recepcionista">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cargo">Cargo <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="cargo" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre en la empresa">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de usuario">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut recepcionista">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese teléfono">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-Mail <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese correo electrónico">
+                    </div>
+                  </div>
+
+     						  <div class="ln_solid"></div>
+     						  <div class="form-group">
+       							<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+       								<button type="reset" class="btn btn-primary">Resetear</button>
+       								<button type="button" id="editar-usuario" class="btn btn-success" data-dismiss="modal">Editar</button>
+       								<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+       							</div>
+     						  </div>
+
+     						</div>
+
+     					</div>
+     				</div>
+          </form>
+     		</div>
+     </div>
+  </body>
 </html>

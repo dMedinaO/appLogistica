@@ -10,7 +10,7 @@
 	$idbodeguero = $_REQUEST['iduser'];
 
 
-	$query = "delete from cliente where cliente.rutCliente = '$idbodeguero'";
+	$query = "delete from receptoresProducto where receptoresProducto.idreceptoresProducto = $idbodeguero";
 	$query2 = "delete from user where user.iduser = $idbodeguero";
 
 	$resultado = mysqli_query($conexion, $query);

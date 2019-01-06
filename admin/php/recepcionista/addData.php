@@ -8,15 +8,18 @@
 	$phone = $_REQUEST['phone'];
 	$email = $_REQUEST['email'];
 	$username = $_REQUEST['username'];
+	$cargo = $_REQUEST['cargo'];
+	$sucursal = $_REQUEST['sucursal'];
+	$client = $_REQUEST['client'];
 
-	$query = "insert into cliente values ('$rut', '$name', NOW(), NOW())";
+	$query = "insert into receptoresProducto values ($rut, '$name', '$cargo', NOW(), NOW(), $client, $sucursal)";
 	$resultado = mysqli_query($conexion, $query);
 	$informacion = verificar_resultado( $resultado, $conexion, $query);
 
 	if($informacion["respuesta"] == "BIEN"){
 
 		#agregamos el usuario...
-		$query = "insert into user values ($rut, '$username', '$rut', NOW(), NOW(), 4, '$email')";
+		$query = "insert into user values ($rut, '$username', '$rut', NOW(), NOW(), 5, '$email')";
 		$resultado = mysqli_query($conexion, $query);
 
 		#agregamos el dispositivo
