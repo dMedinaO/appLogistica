@@ -80,7 +80,9 @@
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
 
     <!--js para handler de usuario -->
-    <script src="../js/choferes/loadData.js"></script>
+    <script src="../js/vehiculosAsignados/loadData.js"></script>
+    <script src="../js/vehiculosAsignados/loadDataChofer.js"></script>
+    <script src="../js/vehiculosAsignados/loadDataVehiculo.js"></script>
 
 </head>
 
@@ -171,7 +173,7 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Choferes Disponibles en el Sistema</h1>
+                      <h1 class="page-header text-overflow">Vehículos Asignados en el sistema</h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -186,7 +188,7 @@
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
                       <div id="demo-custom-toolbar2" class="table-toolbar-left">
-                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Agregar Chofer</button>
+                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Asignar vehículo</button>
                       </div>
 
                       <div class="panel-body">
@@ -194,13 +196,8 @@
                           <thead>
                             <tr>
                               <th class="min-tablet">Chofer</th>
-                              <th class="min-tablet">Rut</th>
-                              <th class="min-tablet">Fecha Nacimiento</th>
-                              <th class="min-tablet">Email</th>
-                              <th class="min-tablet">Teléfono</th>
-                              <th class="min-tablet">Name User</th>
-                              <th class="min-tablet">Password</th>
-                              <th class="min-tablet">Modificado</th>
+                              <th class="min-tablet">Vehículo</th>
+                              <th class="min-tablet">Fecha Asignación</th>
                               <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
@@ -408,72 +405,42 @@
            <div class="modal-content">
              <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Chofer</h4>
+               <h4 class="modal-title" id="myModalLabel">Asignar Vehículo</h4>
              </div>
              <div class="modal-body">
 
              <form id="frmAgregar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
-                 </label>
-
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre chofer">
-                 </div>
-               </div>
 
                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
-                 </label>
+ 								<label class="control-label col-md-3 col-sm-3 col-lg-3" for="vehiculo">Vehículo <span class="required">*</span>
+ 								</label>
+ 								<div class="col-md-7 col-sm-7 col-lg-7 col-xs-12">
+ 									<div class="selector-vehiculo">
+ 										<select id="vehiculo" class="form-control" required>
+ 										</select>
+ 									</div>
+ 								</div>
+ 							</div>
 
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut (sin puntos y sin digito verificador)">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha Nacimiento <span class="required">*</span>
-                 </label>
-
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="fecha" required="required" class="form-control col-md-7 col-xs-12" placeholder="YYYY-MM-DD">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Nombre de usuario">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Teléfono">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
-                 </div>
-               </div>
+              <div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-lg-3" for="chofer">Chofer <span class="required">*</span>
+								</label>
+								<div class="col-md-7 col-sm-7 col-lg-7 col-xs-12">
+									<div class="selector-chofer">
+										<select id="chofer" class="form-control" required>
+										</select>
+									</div>
+								</div>
+							</div>
 
                <div class="ln_solid"></div>
-
 
              </div>
 
              <div class="modal-footer">
                <div class="form-group">
                  <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                   <button type="reset" class="btn btn-primary">Resetear</button>
-                   <button type="button" id="agregar-bodega" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                   <button type="button" id="asignar" class="btn btn-success" data-dismiss="modal">Aceptar</button>
                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                  </div>
                </div>
@@ -486,17 +453,19 @@
      <!-- modal para eliminar -->
      <div>
        <form id="frmEliminar" action="" method="POST">
-         <input type="hidden" id="iduser" name="iduser" value="">
+         <input type="hidden" id="chofer" name="chofer" value="">
+         <input type="hidden" id="vehiculo" name="vehiculo" value="">
+
          <!-- Modal -->
          <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel">
            <div class="modal-dialog" role="document">
              <div class="modal-content">
                <div class="modal-header">
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Chofer</h4>
+                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Asignación</h4>
                </div>
                <div class="modal-body">
-                 ¿Está seguro de eliminar el chofer seleccionado?<strong data-name=""></strong>
+                 ¿Está seguro de eliminar la asignación seleccionada?<strong data-name=""></strong>
                </div>
                <div class="modal-footer">
                  <button type="button" id="eliminar-usuario" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
@@ -507,87 +476,6 @@
          </div>
          <!-- Modal -->
        </form>
-     </div>
-
-     <!-- modal para editar un nuevo elemento -->
-     <div>
-     	<form id="frmEditar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
-     		<input type="hidden" id="oldRut" name="oldRut" value="">
-     		<div class="modal fade" id="myModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="true">
-     				<div class="modal-dialog">
-     					<div class="modal-content">
-     						<div class="modal-header">
-     							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-     							<h4 class="modal-title" id="myModalLabelEdit">Editar Chofer Seleccionado</h4>
-     						</div>
-     						<div class="modal-body">
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
-                    </label>
-
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre chofer">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
-                    </label>
-
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut (sin puntos y sin digito verificador)">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha Nacimiento <span class="required">*</span>
-                    </label>
-
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="fecha" required="required" class="form-control col-md-7 col-xs-12" placeholder="YYYY-MM-DD">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
-                    </label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Nombre de usuario">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
-                    </label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Teléfono">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                    </label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
-                    </div>
-                  </div>
-
-     						  <div class="ln_solid"></div>
-     						  <div class="form-group">
-       							<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-       								<button type="reset" class="btn btn-primary">Resetear</button>
-       								<button type="button" id="editar-usuario" class="btn btn-success" data-dismiss="modal">Editar</button>
-       								<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-       							</div>
-     						  </div>
-
-     						</div>
-
-     					</div>
-     				</div>
-          </form>
-     		</div>
      </div>
   </body>
 </html>
