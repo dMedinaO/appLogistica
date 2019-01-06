@@ -80,7 +80,7 @@
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
 
     <!--js para handler de usuario -->
-    <script src="../js/loadUsers.js"></script>
+    <script src="../js/users/loadData.js"></script>
 </head>
 
 <!--TIPS-->
@@ -128,7 +128,7 @@
                         <!--User dropdown-->
                         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                         <li id="dropdown-user" class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                            <a href="../" data-toggle="dropdown" class="dropdown-toggle text-right">
                                 <span class="ic-user pull-right">
                                     <!--<img class="img-circle img-user media-object" src="img/profile-photos/1.png" alt="Profile Picture">-->
                                     <i class="demo-pli-male"></i>
@@ -184,10 +184,6 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
-                      <div id="demo-custom-toolbar2" class="table-toolbar-left">
-                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Agregar Usuario</button>
-                      </div>
-
                       <div class="panel-body">
                         <table id="users" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
@@ -199,7 +195,6 @@
                               <th class="min-tablet">Creado</th>
                               <th class="min-tablet">Modificado</th>
                               <th class="min-tablet">Rol</th>
-                              <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
                           </table>
@@ -262,11 +257,28 @@
 
           						            </li>
 
-          						            <!--Menu list item-->
-          						            <li>
+                                  <li>
           						                <a href="../users/">
           						                    <i class="fa fa-users"></i>
           						                    <span class="menu-title">Usuarios</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
+                                  <li class="list-header">Bodega y Despacho</li>
+
+                                  <li>
+          						                <a href="../bodega/">
+          						                    <i class="fa fa-home"></i>
+          						                    <span class="menu-title">Bodega</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
+																	<li>
+          						                <a href="../bodegueros/">
+          						                    <i class="fa fa-users"></i>
+          						                    <span class="menu-title">Bodegueros</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
@@ -282,21 +294,20 @@
           						            </li>
 
                                   <li>
-          						                <a href="../chofer/">
+          						                <a href="../choferes/">
           						                    <i class="fa fa-user"></i>
           						                    <span class="menu-title">Choferes</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
-																	<li>
-          						                <a href="../rutas/">
-          						                    <i class="fa fa-map"></i>
-          						                    <span class="menu-title">Rutas</span><i class="arrow"></i>
+                                  <li>
+          						                <a href="../vehiculosAsignados/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Vehículos Asignados</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
-
 
                                   <li class="list-header">Clientes</li>
 
@@ -308,12 +319,20 @@
 
           						            </li>
 
-                                  <li class="list-header">Home Page</li>
+                                  <li class="list-header">Servicios</li>
 
                                   <li>
-          						                <a href="../">
-          						                    <i class="fa fa-home"></i>
-          						                    <span class="menu-title">Home Page</span><i class="arrow"></i>
+          						                <a href="../mailing/">
+          						                    <i class="fa fa-envelope"></i>
+          						                    <span class="menu-title">Correo</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
+                                  <li>
+          						                <a href="../pushNotification/">
+          						                    <i class="fa fa-bell"></i>
+          						                    <span class="menu-title">Notificaciones Push</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
@@ -374,168 +393,5 @@
     <!--===================================================-->
     <!-- END OF CONTAINER -->
 
-    <!-- modal section -->
-    <!-- modal para agregar-->
-     <div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
-         <div class="modal-dialog">
-           <div class="modal-content">
-             <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Usuario</h4>
-             </div>
-             <div class="modal-body">
-
-             <form id="frmAgregar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
-                 </label>
-
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de usuario">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese su email">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese su teléfono">
-                 </div>
-               </div>
-
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rolUser">Rol Usuario<span class="required">*</span>
-                 </label>
-
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <select id="rolUser" class="form-control">
-                   <option value="1">ROOT</option>
-                   <option value="2">ADMINISTRADOR</option>
-                   <option value="3">USUARIO</option>
-                   </select>
-                 </div>
-               </div>
-
-               <div class="ln_solid"></div>
-
-
-             </div>
-
-             <div class="modal-footer">
-               <div class="form-group">
-                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                   <button type="reset" class="btn btn-primary">Resetear</button>
-                   <button type="button" id="agregar-usuario" class="btn btn-success" data-dismiss="modal">Aceptar</button>
-                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </form>
-     </div>
-
-     <!-- modal para eliminar -->
-     <div>
-       <form id="frmEliminar" action="" method="POST">
-         <input type="hidden" id="iduser" name="iduser" value="">
-         <!-- Modal -->
-         <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel">
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Usuario</h4>
-               </div>
-               <div class="modal-body">
-                 ¿Está seguro de eliminar el usuario seleccionado?<strong data-name=""></strong>
-               </div>
-               <div class="modal-footer">
-                 <button type="button" id="eliminar-usuario" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-               </div>
-             </div>
-           </div>
-         </div>
-         <!-- Modal -->
-       </form>
-     </div>
-
-     <!-- modal para editar un nuevo elemento -->
-     <div>
-     	<form id="frmEditar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
-     		<input type="hidden" id="iduser" name="iduser" value="">
-     		<div class="modal fade" id="myModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="true">
-     				<div class="modal-dialog">
-     					<div class="modal-content">
-     						<div class="modal-header">
-     							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-     							<h4 class="modal-title" id="myModalLabelEdit">Editar Usuario Seleccionado</h4>
-     						</div>
-     						<div class="modal-body">
-
-
-     						 <div class="form-group">
-     							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
-     							</label>
-
-     							<div class="col-md-9 col-sm-9 col-xs-12">
-     							  <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de usuario">
-     							</div>
-     						  </div>
-
-                   <div class="form-group">
-     							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-     							</label>
-     							<div class="col-md-9 col-sm-9 col-xs-12">
-     							  <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese su email">
-     							</div>
-     						  </div>
-
-                  <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese su número de teléfono">
-                 </div>
-                 </div>
-
-     						  <div class="form-group">
-     							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="rolUser">Rol Usuario<span class="required">*</span>
-     							</label>
-
-     							<div class="col-md-9 col-sm-9 col-xs-12">
-     							  <select id="rolUser" class="form-control">
-     								<option value="1">ROOT</option>
-     								<option value="2">ADMINISTRADOR</option>
-     								<option value="3">USUARIO</option>
-     							  </select>
-     							</div>
-     						  </div>
-
-     						  <div class="ln_solid"></div>
-     						  <div class="form-group">
-     							<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-     								<button type="reset" class="btn btn-primary">Resetear</button>
-     								<button type="button" id="editar-usuario" class="btn btn-success" data-dismiss="modal">Editar</button>
-     								<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-     							</div>
-     						  </div>
-
-     						</div>
-
-     					</div>
-     				</div>
-     		</div>
-     		</form>
-     </div>
   </body>
 </html>

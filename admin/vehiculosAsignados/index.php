@@ -264,6 +264,14 @@
 
           						            </li>
 
+                                  <li>
+          						                <a href="../users/">
+          						                    <i class="fa fa-users"></i>
+          						                    <span class="menu-title">Usuarios</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
                                   <li class="list-header">Bodega y Despacho</li>
 
                                   <li>
@@ -299,6 +307,15 @@
           						                </a>
 
           						            </li>
+
+                                  <li>
+          						                <a href="../vehiculosAsignados/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Vehículos Asignados</span><i class="arrow"></i>
+          						                </a>
+
+          						            </li>
+
 
                                   <li class="list-header">Clientes</li>
 
