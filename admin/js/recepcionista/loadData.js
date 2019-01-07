@@ -41,6 +41,7 @@ function getQuerystring(key, default_) {
 
     //listamos los datos...
 		var listar = function(){
+			var sucursal = getQuerystring('sucursal');
 	    var t = $('#bodegaData').DataTable({
 	        "responsive": true,
 	        "language": idioma_espanol,
@@ -49,7 +50,7 @@ function getQuerystring(key, default_) {
 					"destroy":true,
 					"ajax":{
 						"method":"POST",
-						"url": "../php/recepcionista/showData.php"
+						"url": "../php/recepcionista/showData.php?sucursal="+sucursal
 					},
 
 					"columns":[
