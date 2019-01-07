@@ -14,70 +14,87 @@
 
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="../css/nifty.min.css" rel="stylesheet">
 
     <!--Nifty Premium Icon [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="../css/demo/nifty-demo-icons.min.css" rel="stylesheet">
 
 
     <!--Demo [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="../css/demo/nifty-demo.min.css" rel="stylesheet">
 
 
 
     <!--DataTables [ OPTIONAL ]-->
-    <link href="plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
-	  <link href="plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css" rel="stylesheet">
+    <link href="../plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+	  <link href="../plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css" rel="stylesheet">
     <!--JSTree [ OPTIONAL ]-->
-    <link href="plugins/jstree/themes/default/style.min.css" rel="stylesheet">
+    <link href="../plugins/jstree/themes/default/style.min.css" rel="stylesheet">
 
     <!--JAVASCRIPT-->
     <!--=================================================-->
 
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
-    <link href="plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="plugins/pace/pace.min.js"></script>
+    <link href="../plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="../plugins/pace/pace.min.js"></script>
 
 
     <!--jQuery [ REQUIRED ]-->
-    <script src="js/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
 
 
     <!--BootstrapJS [ RECOMMENDED ]-->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 
     <!--NiftyJS [ RECOMMENDED ]-->
-    <script src="js/nifty.min.js"></script>
+    <script src="../js/nifty.min.js"></script>
 
 
     <!--=================================================-->
 
     <!--Demo script [ DEMONSTRATION ]-->
-    <script src="js/demo/nifty-demo.min.js"></script>
+    <script src="../js/demo/nifty-demo.min.js"></script>
 
     <!--JSTree [ OPTIONAL ]-->
-    <script src="plugins/jstree/jstree.min.js"></script>
+    <script src="../plugins/jstree/jstree.min.js"></script>
 
     <!--DataTables [ OPTIONAL ]-->
-    <script src="plugins/datatables/media/js/jquery.dataTables.js"></script>
-	  <script src="plugins/datatables/media/js/dataTables.bootstrap.js"></script>
-	  <script src="plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../plugins/datatables/media/js/jquery.dataTables.js"></script>
+	  <script src="../plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+	  <script src="../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 
     <!--Font Awesome [ OPTIONAL ]-->
-    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!--Ion Icons [ OPTIONAL ]-->
-    <link href="plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="../plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <!--Ion Icons [ OPTIONAL ]-->
-    <link href="plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
     <!--Themify Icons [ OPTIONAL ]-->
-    <link href="plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
+    <link href="../plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
     <!--Premium Line Icons [ OPTIONAL ]-->
-    <link href="premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+    <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+
+    <!-- para los higcharts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    
+    <script src="../js/profile/loadPedidos.js"></script>
+    <script src="../js/profile/loadSucursales.js"></script>
+    <script src="../js/profile/loadRecepcionistas.js"></script>
+    <script src="../js/profile/loadPedidosData.js"></script>
+
 </head>
 
 <!--TIPS-->
@@ -93,8 +110,8 @@
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">
-                        <img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
+                    <a href="../" class="navbar-brand">
+                        <img src="../img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
                             <span class="brand-text">App Logística</span>
                         </div>
@@ -159,92 +176,157 @@
 
         <div class="boxed">
 
-            <!--CONTENT CONTAINER-->
-            <!--===================================================-->
-            <div id="content-container">
-                <div id="page-head">
+          <!--CONTENT CONTAINER-->
+          <!--===================================================-->
+          <div id="content-container">
+              <div id="page-head">
 
-                    <!--Page Title-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div id="page-title">
-                        <h1 class="page-header text-overflow">Dashboard Panel Values</h1>
+                  <!--Page Title-->
+                  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                  <div id="page-title">
+                      <h1 class="page-header text-overflow">Mis Pedidos Recibidos</h1>
 
+                  </div>
+                  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                  <!--End page title-->
+              </div>
+
+
+              <!--Page content-->
+              <!--===================================================-->
+              <div id="page-content">
+
+                <div class="row">
+
+                  <div class="col-lg-3 col-md-3">
+                    <div class="panel media middle pad-all">
+                        <div class="media-left">
+                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
+                            <i class="fa fa-users fa-2x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <p class="text-2x mar-no text-semibold text-main">36</p>
+                            <p class="text-muted mar-no">Recep. con más pedidos</p>
+                        </div>
                     </div>
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--End page title-->
+                  </div>
+                  <div class="col-lg-3 col-md-3">
+                    <div class="panel media middle pad-all">
+                        <div class="media-left">
+                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
+                            <i class="fa fa-institution fa-2x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <p class="text-2x mar-no text-semibold text-main countries">67</p>
+                            <p class="text-muted mar-no">Sucursal con más Pedidos</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3">
+                    <div class="panel media middle pad-all">
+                        <div class="media-left">
+                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
+                            <i class="fa fa-comments fa-2x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <p class="text-2x mar-no text-semibold text-main">4</p>
+                            <p class="text-muted mar-no">Comentarios Negativos</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3">
+                    <div class="panel media middle pad-all">
+                        <div class="media-left">
+                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
+                            <i class="fa fa-code-fork fa-2x"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <p class="text-2x mar-no text-semibold text-main">3</p>
+                            <p class="text-muted mar-no">Pedidos en espera</p>
+                        </div>
+                    </div>
+                  </div>
                 </div>
 
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Pedidos Solicitados en el tiempo</h3>
+                       </div>
+                       <div class="panel-body">
+                         <div id="pedidos">
+                         </div>
+                       </div>
+                      </div>
+                  </div>
+                </div>
 
-                <!--Page content-->
-                <!--===================================================-->
-                <div id="page-content">
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-lg-6">
 
-					<div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 01</h3>
-		      			 </div>
-		      			 <div class="panel-body">
-		      			 </div>
-		      			</div>
-      			</div>
+                    <div class="panel">
 
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 02</h3>
-		      			 </div>
-		      			 <div class="panel-body">
-		      			 </div>
-		      			</div>
-      			</div>
+                      <div class="panel-title">
+                        Pedidos por sucursal
+                      </div>
+                      <div class="panel-body">
+                        <div id="pedidosSucursal"></div>
+                      </div>
+                    </div>
+                  </div>
 
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 03</h3>
-		      			 </div>
-		      			 <div class="panel-body">
-		      			 </div>
-		      			</div>
-      			</div>
+                  <div class="col-sm-6 col-md-6 col-lg-6">
+
+                    <div class="panel">
+
+                      <div class="panel-title">
+                        Pedidos por Recepcionista
+                      </div>
+                      <div class="panel-body">
+                        <div id="pedidosRecepcionista"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+
+                    <div class="panel">
+
+                      <div class="panel-title">
+                        Historial de Pedidos
+                      </div>
+                      <div class="panel-body">
+                        <table id="pedidosDespacho" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th class="min-tablet">Bodega</th>
+                              <th class="min-tablet">Fecha Entrega</th>
+                              <th class="min-tablet">Recepcionado</th>
+                              <th class="min-tablet">Documento</th>
+                              <th class="min-tablet">Despachado</th>
+                              <th class="min-tablet">Chofer</th>
+                              <th class="min-tablet">Detalle</th>
+                              </tr>
+                            </thead>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--===================================================-->
+              <!--End page content-->
+
           </div>
-
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-							<div class="panel">
-					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Graphic Value 01</h3>
-					      </div>
-					      <div class="panel-body">
-					      </div>
-					     </div>
-						</div>
-          </div>
-
-          <div class="row">
-						<div class="col-sm-12 col-md-12 col-lg-12">
-							<div class="panel">
-					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Graphic Value 02</h3>
-					      </div>
-					      <div class="panel-body">
-					      </div>
-					     </div>
-						</div>
-          </div>
-
-        </div>
-                <!--===================================================-->
-                <!--End page content-->
-      </div>
-            <!--===================================================-->
-            <!--END CONTENT CONTAINER-->
-
-
-
-
+          <!--===================================================-->
+          <!--END CONTENT CONTAINER-->
 
 
             <!--MAIN NAVIGATION-->
@@ -263,7 +345,7 @@
                                 <div id="mainnav-profile" class="mainnav-profile">
                                     <div class="profile-wrap text-center">
                                         <div class="pad-btm">
-                                            <img class="img-circle img-md" src="img/profile-photos/11.png" alt="Profile Picture">
+                                            <img class="img-circle img-md" src="../img/profile-photos/11.png" alt="Profile Picture">
                                         </div>
                                         <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
                                             <span class="pull-right dropdown-toggle">
@@ -286,7 +368,7 @@
           						            <li class="list-header">Mi Información</li>
 
 																	<li>
-          						                <a href="profile/">
+          						                <a href="../profile/">
           						                    <i class="fa fa-user"></i>
           						                    <span class="menu-title">Mi Perfil</span><i class="arrow"></i>
           						                </a>
@@ -294,7 +376,7 @@
           						            </li>
 
                                   <li>
-          						                <a href="sucursales/">
+          						                <a href="../sucursales/">
           						                    <i class="fa fa-institution"></i>
           						                    <span class="menu-title">Mis Sucursales</span><i class="arrow"></i>
           						                </a>
@@ -302,7 +384,7 @@
           						            </li>
 
                                   <li>
-          						                <a href="recepcionistas/">
+          						                <a href="../recepcionistas/">
           						                    <i class="fa fa-users"></i>
           						                    <span class="menu-title">Mis Recepcionistas</span><i class="arrow"></i>
           						                </a>
@@ -312,7 +394,7 @@
                                   <li class="list-header">Pedidos y Productos</li>
 
                                   <li>
-          						                <a href="pedidos/">
+          						                <a href="../pedidos/">
           						                    <i class="fa fa-home"></i>
           						                    <span class="menu-title">Pedidos Entregados</span><i class="arrow"></i>
           						                </a>
@@ -320,7 +402,7 @@
           						            </li>
 
 																	<li>
-          						                <a href="pedidosPendientes/">
+          						                <a href="../pedidosPendientes/">
           						                    <i class="fa fa-users"></i>
           						                    <span class="menu-title">Pedidos Pendientes</span><i class="arrow"></i>
           						                </a>
@@ -328,30 +410,29 @@
           						            </li>
 
                                   <li>
-          						                <a href="productos/">
+          						                <a href="../productos/">
           						                    <i class="fa fa-users"></i>
           						                    <span class="menu-title">Productos</span><i class="arrow"></i>
           						                </a>
 
-          						            </li>                                
+          						            </li>
 
                                   <li class="list-header">Servicios</li>
 
                                   <li>
-          						                <a href="mailing/">
+          						                <a href="../mailing/">
           						                    <i class="fa fa-envelope"></i>
           						                    <span class="menu-title">Contactar Admin</span><i class="arrow"></i>
           						                </a>
           						            </li>
 
                                   <li>
-          						                <a href="notification/">
+          						                <a href="../notification/">
           						                    <i class="fa fa-bell"></i>
           						                    <span class="menu-title">Contactar Chofer</span><i class="arrow"></i>
           						                </a>
           						            </li>
 						            </ul>
-
                     <!--================================-->
                     <!--End menu-->
 
@@ -383,7 +464,7 @@
             <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-            <p class="pad-lft">&#0169; 2019 David Medina Ortiz, david.medina@cebib.cl</p>
+            <p class="pad-lft">&#0169; 2018 David Medina Ortiz, david.medina@cebib.cl</p>
 
 
 
