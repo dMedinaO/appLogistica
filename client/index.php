@@ -78,6 +78,18 @@
     <link href="plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
     <!--Premium Line Icons [ OPTIONAL ]-->
     <link href="premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+
+    <!-- para los higcharts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="js/profile/loadPedidos.js"></script>
+    <script src="js/productos/loadProductosRanking.js"></script>
+    <script src="js/profile/loadSucursales.js"></script>
+    <script src="js/profile/loadRecepcionistas.js"></script>
+    <script src="js/productos/loadProductosRechazados.js"></script>
 </head>
 
 <!--TIPS-->
@@ -182,30 +194,31 @@
 					<div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 01</h3>
-		      			 </div>
+
 		      			 <div class="panel-body">
+                   <div id="pedidosSucursal">
+                   </div>
 		      			 </div>
 		      			</div>
       			</div>
 
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 02</h3>
-		      			 </div>
+
 		      			 <div class="panel-body">
+                   <div id="productosRechazados">
+                   </div>
 		      			 </div>
 		      			</div>
       			</div>
 
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 03</h3>
-		      			 </div>
+
 		      			 <div class="panel-body">
+                   <div id="pedidosRecepcionista">
+
+                   </div>
 		      			 </div>
 		      			</div>
       			</div>
@@ -215,9 +228,10 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
 							<div class="panel">
 					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Graphic Value 01</h3>
+					     		<h3 class="panel-title">Historial de Pedidos</h3>
 					      </div>
 					      <div class="panel-body">
+                  <div id="pedidos"></div>
 					      </div>
 					     </div>
 						</div>
@@ -227,9 +241,12 @@
 						<div class="col-sm-12 col-md-12 col-lg-12">
 							<div class="panel">
 					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Graphic Value 02</h3>
+					     		<h3 class="panel-title">Ranking de Productos</h3>
 					      </div>
 					      <div class="panel-body">
+                  <div id="productos">
+
+                  </div>
 					      </div>
 					     </div>
 						</div>
@@ -333,7 +350,7 @@
           						                    <span class="menu-title">Productos</span><i class="arrow"></i>
           						                </a>
 
-          						            </li>                                
+          						            </li>
 
                                   <li class="list-header">Servicios</li>
 

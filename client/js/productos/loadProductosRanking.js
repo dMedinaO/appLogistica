@@ -11,10 +11,6 @@ $(function () {
 
 	var data = [trace1];
 
-	var layout = {
-	  title: 'Mi ranking de productos'
-	};
-
-	Plotly.newPlot('productos', data, layout);
+	Plotly.newPlot('productos', data);
 
 });
