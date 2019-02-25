@@ -16,56 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `OC_NUM`
---
-
-DROP TABLE IF EXISTS `OC_NUM`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `OC_NUM` (
-  `idOC_NUM` int(11) NOT NULL,
-  `OC_Num_Values` varchar(45) NOT NULL,
-  `created_OC_NUM` datetime NOT NULL,
-  `modified_OC_NUM` datetime NOT NULL,
-  PRIMARY KEY (`idOC_NUM`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `OC_NUM`
---
-
-LOCK TABLES `OC_NUM` WRITE;
-/*!40000 ALTER TABLE `OC_NUM` DISABLE KEYS */;
-/*!40000 ALTER TABLE `OC_NUM` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `SO_NUM`
---
-
-DROP TABLE IF EXISTS `SO_NUM`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `SO_NUM` (
-  `idSO_NUM` int(11) NOT NULL,
-  `SO_NUM_val` varchar(45) NOT NULL,
-  `created_SO_NUM` datetime NOT NULL,
-  `modified_SO_NUM` datetime NOT NULL,
-  PRIMARY KEY (`idSO_NUM`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `SO_NUM`
---
-
-LOCK TABLES `SO_NUM` WRITE;
-/*!40000 ALTER TABLE `SO_NUM` DISABLE KEYS */;
-/*!40000 ALTER TABLE `SO_NUM` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `bodega`
 --
 
@@ -87,7 +37,7 @@ CREATE TABLE `bodega` (
 
 LOCK TABLES `bodega` WRITE;
 /*!40000 ALTER TABLE `bodega` DISABLE KEYS */;
-INSERT INTO `bodega` VALUES (1544923324,'Bodega 1','2018-12-15 22:22:04','2018-12-15 22:22:04'),(1546784691,'Bodeta test','2019-01-06 11:24:51','2019-01-06 11:25:42');
+INSERT INTO `bodega` VALUES (1551067539,'BODEGA 01','2019-02-25 01:05:39','2019-02-25 01:05:39');
 /*!40000 ALTER TABLE `bodega` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +66,7 @@ CREATE TABLE `bodeguero` (
 
 LOCK TABLES `bodeguero` WRITE;
 /*!40000 ALTER TABLE `bodeguero` DISABLE KEYS */;
-INSERT INTO `bodeguero` VALUES (1546786852,'Bodeguero01','2019-01-06 12:00:52','2019-01-06 12:00:52',1546784691),(1546786884,'Bodeguero02','2019-01-06 12:01:24','2019-01-06 12:01:24',1546784691);
+INSERT INTO `bodeguero` VALUES (1551067564,'BODEGUERO01','2019-02-25 01:06:04','2019-02-25 01:06:04',1551067539),(1551067585,'BODEGUERO02','2019-02-25 01:06:25','2019-02-25 01:06:25',1551067539);
 /*!40000 ALTER TABLE `bodeguero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +93,7 @@ CREATE TABLE `chofer` (
 
 LOCK TABLES `chofer` WRITE;
 /*!40000 ALTER TABLE `chofer` DISABLE KEYS */;
-INSERT INTO `chofer` VALUES (159933237,'Chofer Demo2','1985-04-17 00:00:00','2019-01-06 12:42:55','2019-01-06 12:42:55'),(182288438,'Chofer Demo','1992-03-16 00:00:00','2019-01-06 12:30:31','2019-01-06 12:32:48');
+INSERT INTO `chofer` VALUES (18228843,'CHOFER01','1992-03-15 00:00:00','2019-02-25 01:07:47','2019-02-25 01:07:47'),(18344821,'CHOFER02','1993-11-26 00:00:00','2019-02-25 01:08:16','2019-02-25 01:08:16');
 /*!40000 ALTER TABLE `chofer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,65 +119,57 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES ('999999911','Paulo Ogaz Ogaz','2019-01-06 16:31:08','2019-01-06 16:35:02');
+INSERT INTO `cliente` VALUES ('61980320','HOSPITAL CLINICO METROP. EL CARMEN','2019-02-25 01:10:43','2019-02-25 01:10:43');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `cliente_compra_pedido`
+-- Table structure for table `comentarioRecepcion`
 --
 
-DROP TABLE IF EXISTS `cliente_compra_pedido`;
+DROP TABLE IF EXISTS `comentarioRecepcion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cliente_compra_pedido` (
-  `documento_iddocumento` int(11) NOT NULL,
-  `cliente_rutCliente` varchar(45) NOT NULL,
-  `fechaPedido` datetime NOT NULL,
-  PRIMARY KEY (`documento_iddocumento`,`cliente_rutCliente`),
-  KEY `fk_documento_has_cliente_cliente1_idx` (`cliente_rutCliente`),
-  KEY `fk_documento_has_cliente_documento1_idx` (`documento_iddocumento`),
-  CONSTRAINT `fk_documento_has_cliente_cliente1` FOREIGN KEY (`cliente_rutCliente`) REFERENCES `cliente` (`rutCliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_documento_has_cliente_documento1` FOREIGN KEY (`documento_iddocumento`) REFERENCES `documento` (`iddocumento`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `comentarioRecepcion` (
+  `idcomentario` int(11) NOT NULL,
+  `nombreRecepcion` varchar(450) NOT NULL,
+  `comentarioPedido` varchar(4500) NOT NULL,
+  `fechaComentario` datetime NOT NULL,
+  PRIMARY KEY (`idcomentario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cliente_compra_pedido`
+-- Dumping data for table `comentarioRecepcion`
 --
 
-LOCK TABLES `cliente_compra_pedido` WRITE;
-/*!40000 ALTER TABLE `cliente_compra_pedido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cliente_compra_pedido` ENABLE KEYS */;
+LOCK TABLES `comentarioRecepcion` WRITE;
+/*!40000 ALTER TABLE `comentarioRecepcion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comentarioRecepcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `comentario`
+-- Table structure for table `comprobante`
 --
 
-DROP TABLE IF EXISTS `comentario`;
+DROP TABLE IF EXISTS `comprobante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `comentario` (
-  `idcomentario` int(11) NOT NULL,
-  `nombreComentario` varchar(45) NOT NULL,
-  `descripcionComentario` varchar(4500) NOT NULL,
-  `createdComentario` datetime NOT NULL,
-  `modifiedComentario` datetime NOT NULL,
-  `producto` int(11) NOT NULL,
-  PRIMARY KEY (`idcomentario`),
-  KEY `fk_comentario_producto1_idx` (`producto`),
-  CONSTRAINT `fk_comentario_producto1` FOREIGN KEY (`producto`) REFERENCES `producto` (`idproducto`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `comprobante` (
+  `idcomprobante` int(11) NOT NULL,
+  `nombreComprobante` varchar(450) NOT NULL,
+  `fechaComprobante` datetime NOT NULL,
+  PRIMARY KEY (`idcomprobante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `comentario`
+-- Dumping data for table `comprobante`
 --
 
-LOCK TABLES `comentario` WRITE;
-/*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
+LOCK TABLES `comprobante` WRITE;
+/*!40000 ALTER TABLE `comprobante` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comprobante` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -254,7 +196,7 @@ CREATE TABLE `device` (
 
 LOCK TABLES `device` WRITE;
 /*!40000 ALTER TABLE `device` DISABLE KEYS */;
-INSERT INTO `device` VALUES (123456789,'123456789','-',123445566),(159933237,'56950966879','-',159933237),(182288438,'56950966878','-',182288438),(999999999,'123456788','-',999999911),(1546786852,'123456789','-',1546786852),(1546786884,'987654321','-',1546786884);
+INSERT INTO `device` VALUES (18228843,'+56950966879','-',18228843),(18344821,'+56950966879','-',18344821),(61980320,'+56950966879','-',61980320),(1551067564,'+56950966879','-',1551067564),(1551067585,'+56950966879','-',1551067585);
 /*!40000 ALTER TABLE `device` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +228,7 @@ CREATE TABLE `direccion` (
 
 LOCK TABLES `direccion` WRITE;
 /*!40000 ALTER TABLE `direccion` DISABLE KEYS */;
-INSERT INTO `direccion` VALUES (1546803525,'SANTIAGO','SANTIAGO','METROPOLITANA','SANTIAGO CENTRO 1234','2019-01-06 16:38:45','2019-01-06 16:38:45','999999911');
+INSERT INTO `direccion` VALUES (1551067894,'MAIPU','SANTIAGO','METROPOLITANA','CAMINO RINCONADA 1201','2019-02-25 01:11:34','2019-02-25 01:11:34','61980320');
 /*!40000 ALTER TABLE `direccion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -318,7 +260,7 @@ CREATE TABLE `direccionBodega` (
 
 LOCK TABLES `direccionBodega` WRITE;
 /*!40000 ALTER TABLE `direccionBodega` DISABLE KEYS */;
-INSERT INTO `direccionBodega` VALUES (1546784691,'PROVINCIA TEST','DIRECCIÃ“N TEST 2','COMUNA TEST','CIUDAD TEST','2019-01-06 11:24:51','2019-01-06 11:25:42',1546784691);
+INSERT INTO `direccionBodega` VALUES (1551067539,'PROVINCIA','DIRECCION','COMUNA','CIUDAD','2019-02-25 01:05:39','2019-02-25 01:05:39',1551067539);
 /*!40000 ALTER TABLE `direccionBodega` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,16 +274,14 @@ DROP TABLE IF EXISTS `documento`;
 CREATE TABLE `documento` (
   `iddocumento` int(11) NOT NULL,
   `tipoDocumento` int(11) NOT NULL,
-  `numeroDocumento` int(11) NOT NULL,
-  `createdDocument` datetime NOT NULL,
-  `modifiedDocument` datetime NOT NULL,
-  `SO_NUM` int(11) DEFAULT NULL,
-  `OC_NUM` int(11) DEFAULT NULL,
+  `folio` int(11) NOT NULL,
+  `fechaEmision` datetime NOT NULL,
+  `monto` int(11) NOT NULL,
+  `rutEmisor` varchar(45) NOT NULL,
+  `rutReceptor` varchar(45) NOT NULL,
   PRIMARY KEY (`iddocumento`),
-  KEY `fk_documento_SO_NUM1_idx` (`SO_NUM`),
-  KEY `fk_documento_OC_NUM1_idx` (`OC_NUM`),
-  CONSTRAINT `fk_documento_OC_NUM1` FOREIGN KEY (`OC_NUM`) REFERENCES `OC_NUM` (`idOC_NUM`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_documento_SO_NUM1` FOREIGN KEY (`SO_NUM`) REFERENCES `SO_NUM` (`idSO_NUM`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk_documento_cliente1_idx` (`rutReceptor`),
+  CONSTRAINT `fk_documento_cliente1` FOREIGN KEY (`rutReceptor`) REFERENCES `cliente` (`rutCliente`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -355,58 +295,36 @@ LOCK TABLES `documento` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `entregaPedido`
+-- Table structure for table `documento_en_ruta`
 --
 
-DROP TABLE IF EXISTS `entregaPedido`;
+DROP TABLE IF EXISTS `documento_en_ruta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `entregaPedido` (
-  `identregaPedido` int(11) NOT NULL,
-  `horaEntrega` datetime NOT NULL,
-  `fechaEntrega` datetime NOT NULL,
+CREATE TABLE `documento_en_ruta` (
+  `documento` int(11) NOT NULL,
   `ruta` int(11) NOT NULL,
-  PRIMARY KEY (`identregaPedido`),
-  KEY `fk_entregaPedido_ruta1_idx` (`ruta`),
-  CONSTRAINT `fk_entregaPedido_ruta1` FOREIGN KEY (`ruta`) REFERENCES `ruta` (`idruta`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `comentario` int(11) NOT NULL,
+  `comprobante` int(11) NOT NULL,
+  PRIMARY KEY (`documento`,`ruta`),
+  KEY `fk_documento_has_ruta_ruta1_idx` (`ruta`),
+  KEY `fk_documento_has_ruta_documento1_idx` (`documento`),
+  KEY `fk_documento_en_ruta_comentarioRecepcion1_idx` (`comentario`),
+  KEY `fk_documento_en_ruta_comprobante1_idx` (`comprobante`),
+  CONSTRAINT `fk_documento_en_ruta_comentarioRecepcion1` FOREIGN KEY (`comentario`) REFERENCES `comentarioRecepcion` (`idcomentario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_documento_en_ruta_comprobante1` FOREIGN KEY (`comprobante`) REFERENCES `comprobante` (`idcomprobante`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_documento_has_ruta_documento1` FOREIGN KEY (`documento`) REFERENCES `documento` (`iddocumento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_documento_has_ruta_ruta1` FOREIGN KEY (`ruta`) REFERENCES `ruta` (`idrutas`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `entregaPedido`
+-- Dumping data for table `documento_en_ruta`
 --
 
-LOCK TABLES `entregaPedido` WRITE;
-/*!40000 ALTER TABLE `entregaPedido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `entregaPedido` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `fotoEntrega`
---
-
-DROP TABLE IF EXISTS `fotoEntrega`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fotoEntrega` (
-  `idfotoEntrega` int(11) NOT NULL,
-  `nombreFoto` varchar(450) NOT NULL,
-  `fechaFoto` datetime NOT NULL,
-  `extension` varchar(45) NOT NULL,
-  `entregaPedido` int(11) NOT NULL,
-  PRIMARY KEY (`idfotoEntrega`),
-  KEY `fk_fotoEntrega_entregaPedido1_idx` (`entregaPedido`),
-  CONSTRAINT `fk_fotoEntrega_entregaPedido1` FOREIGN KEY (`entregaPedido`) REFERENCES `entregaPedido` (`identregaPedido`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `fotoEntrega`
---
-
-LOCK TABLES `fotoEntrega` WRITE;
-/*!40000 ALTER TABLE `fotoEntrega` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fotoEntrega` ENABLE KEYS */;
+LOCK TABLES `documento_en_ruta` WRITE;
+/*!40000 ALTER TABLE `documento_en_ruta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documento_en_ruta` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -436,97 +354,6 @@ CREATE TABLE `geoPoint` (
 LOCK TABLES `geoPoint` WRITE;
 /*!40000 ALTER TABLE `geoPoint` DISABLE KEYS */;
 /*!40000 ALTER TABLE `geoPoint` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `producto`
---
-
-DROP TABLE IF EXISTS `producto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `producto` (
-  `idproducto` int(11) NOT NULL,
-  `nombreProducto` varchar(450) NOT NULL,
-  `cantidadElementos` int(11) NOT NULL,
-  `createdProducto` datetime NOT NULL,
-  `modifiedProducto` datetime NOT NULL,
-  `estadoProducto` varchar(45) NOT NULL,
-  `documento` int(11) NOT NULL,
-  PRIMARY KEY (`idproducto`),
-  KEY `fk_producto_documento1_idx` (`documento`),
-  CONSTRAINT `fk_producto_documento1` FOREIGN KEY (`documento`) REFERENCES `documento` (`iddocumento`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `producto`
---
-
-LOCK TABLES `producto` WRITE;
-/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `recepcionProducto`
---
-
-DROP TABLE IF EXISTS `recepcionProducto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `recepcionProducto` (
-  `receptoresProducto` int(11) NOT NULL,
-  `entregaPedido` int(11) NOT NULL,
-  `comentario` int(11) NOT NULL,
-  PRIMARY KEY (`receptoresProducto`,`entregaPedido`),
-  KEY `fk_receptoresProducto_has_entregaPedido_entregaPedido1_idx` (`entregaPedido`),
-  KEY `fk_receptoresProducto_has_entregaPedido_receptoresProducto1_idx` (`receptoresProducto`),
-  KEY `fk_recepcionProducto_comentario1_idx` (`comentario`),
-  CONSTRAINT `fk_recepcionProducto_comentario1` FOREIGN KEY (`comentario`) REFERENCES `comentario` (`idcomentario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_receptoresProducto_has_entregaPedido_entregaPedido1` FOREIGN KEY (`entregaPedido`) REFERENCES `entregaPedido` (`identregaPedido`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_receptoresProducto_has_entregaPedido_receptoresProducto1` FOREIGN KEY (`receptoresProducto`) REFERENCES `receptoresProducto` (`idreceptoresProducto`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `recepcionProducto`
---
-
-LOCK TABLES `recepcionProducto` WRITE;
-/*!40000 ALTER TABLE `recepcionProducto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `recepcionProducto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `receptoresProducto`
---
-
-DROP TABLE IF EXISTS `receptoresProducto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `receptoresProducto` (
-  `idreceptoresProducto` int(11) NOT NULL,
-  `nombreReceptor` varchar(450) NOT NULL,
-  `cargo` varchar(45) NOT NULL,
-  `createdReceptor` datetime NOT NULL,
-  `modifiedReceptor` datetime NOT NULL,
-  `cliente` varchar(45) NOT NULL,
-  `sucursal` int(11) NOT NULL,
-  PRIMARY KEY (`idreceptoresProducto`),
-  KEY `fk_receptoresProducto_cliente1_idx` (`cliente`),
-  CONSTRAINT `fk_receptoresProducto_cliente1` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`rutCliente`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `receptoresProducto`
---
-
-LOCK TABLES `receptoresProducto` WRITE;
-/*!40000 ALTER TABLE `receptoresProducto` DISABLE KEYS */;
-INSERT INTO `receptoresProducto` VALUES (123445566,'Recepcionista Demo2','Recepcionista2','2019-01-06 17:21:19','2019-01-06 17:35:13','999999911',1546803525);
-/*!40000 ALTER TABLE `receptoresProducto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -563,17 +390,13 @@ DROP TABLE IF EXISTS `ruta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ruta` (
-  `idruta` int(11) NOT NULL,
-  `nombreRuta` varchar(45) NOT NULL,
-  `fechaRuta` datetime NOT NULL,
+  `idrutas` int(11) NOT NULL,
+  `nombreRuta` varchar(450) NOT NULL,
   `jornadaRuta` varchar(45) NOT NULL,
-  `documentoAsignado` int(11) NOT NULL,
-  `choferAsignado` int(11) NOT NULL,
-  PRIMARY KEY (`idruta`),
-  KEY `fk_ruta_documento1_idx` (`documentoAsignado`),
-  KEY `fk_ruta_chofer1_idx` (`choferAsignado`),
-  CONSTRAINT `fk_ruta_chofer1` FOREIGN KEY (`choferAsignado`) REFERENCES `chofer` (`rutChofer`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_ruta_documento1` FOREIGN KEY (`documentoAsignado`) REFERENCES `documento` (`iddocumento`) ON DELETE CASCADE ON UPDATE CASCADE
+  `rutChofer` int(11) NOT NULL,
+  PRIMARY KEY (`idrutas`),
+  KEY `fk_ruta_chofer1_idx` (`rutChofer`),
+  CONSTRAINT `fk_ruta_chofer1` FOREIGN KEY (`rutChofer`) REFERENCES `chofer` (`rutChofer`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -613,7 +436,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (123445566,'recepcionista02','123456789','2019-01-06 17:21:20','2019-01-06 17:35:13',5,'david.medina@cebib.cl'),(159933237,'chofer02','159933237','2019-01-06 12:42:55','2019-01-06 12:42:55',3,'davidmoandres.10@gmail.com'),(182288438,'choferDemo','182288438','2019-01-06 12:30:32','2019-01-06 12:32:49',3,'david.medina@cebib.cl'),(999999911,'pogaz','999999999','2019-01-06 16:31:08','2019-01-06 16:35:02',4,'david.medina@cebib.cl'),(1546786852,'bodeguero01','bodeguero01','2019-01-06 12:00:52','2019-01-06 12:00:52',2,'david.medina@cebib.cl'),(1546786884,'bodeguero02','bodeguero02','2019-01-06 12:01:24','2019-01-06 12:01:24',2,'davidmoandres.10@gmail.com');
+INSERT INTO `user` VALUES (18228843,'chofer01','18228843','2019-02-25 01:07:47','2019-02-25 01:07:47',3,'david.medina@cebib.cl'),(18344821,'dinostroza','18344821','2019-02-25 01:08:17','2019-02-25 01:08:17',3,'david.medina@cebib.cl'),(61980320,'elcarmenhp','61980320','2019-02-25 01:10:44','2019-02-25 01:10:44',4,'david.medina@cebib.cl'),(1551067564,'bodeguero01','bodeguero01','2019-02-25 01:06:04','2019-02-25 01:06:04',2,'david.medina@cebib.cl'),(1551067585,'bodeguero02','bodeguero02','2019-02-25 01:06:25','2019-02-25 01:06:25',2,'david.medina@cebib.cl');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -641,7 +464,7 @@ CREATE TABLE `vehiculo` (
 
 LOCK TABLES `vehiculo` WRITE;
 /*!40000 ALTER TABLE `vehiculo` DISABLE KEYS */;
-INSERT INTO `vehiculo` VALUES ('PATENTE-1','MARCA 4','MODELO 4',2018,'2019-01-06 11:38:19','2019-01-06 11:41:53'),('PATENTE-2','MODELO 2','MARCA 2',2018,'2019-01-06 11:45:09','2019-01-06 11:45:09'),('PATENTE-3','MARCA 3','MODELO 3',2011,'2019-01-06 11:45:28','2019-01-06 11:45:28');
+INSERT INTO `vehiculo` VALUES ('PATENTE1','MARCA1','MODELO1',2017,'2019-02-25 01:06:57','2019-02-25 01:06:57'),('PATENTE2','MARCA2','MODELO2',2018,'2019-02-25 01:07:14','2019-02-25 01:07:14');
 /*!40000 ALTER TABLE `vehiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -670,7 +493,7 @@ CREATE TABLE `vehiculoAsignado` (
 
 LOCK TABLES `vehiculoAsignado` WRITE;
 /*!40000 ALTER TABLE `vehiculoAsignado` DISABLE KEYS */;
-INSERT INTO `vehiculoAsignado` VALUES ('PATENTE-1',159933237,'2019-01-06 14:41:36'),('PATENTE-2',182288438,'2019-01-06 14:37:29');
+INSERT INTO `vehiculoAsignado` VALUES ('PATENTE1',18228843,'2019-02-25 01:08:36'),('PATENTE2',18344821,'2019-02-25 01:08:40');
 /*!40000 ALTER TABLE `vehiculoAsignado` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -683,4 +506,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-06 17:35:53
+-- Dump completed on 2019-02-25  1:12:32

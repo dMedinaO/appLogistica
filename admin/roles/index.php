@@ -264,28 +264,7 @@
                       </div>
                       <!---------------------------------->
                 </div>
-
-                <div class="col-sm-6 col-md-6">
-
-                        <!-- Contact Widget -->
-                        <!---------------------------------->
-                        <div class="panel pos-rel">
-                            <div class="pad-all text-center">
-                                <div class="widget-control">
-
-                                </div>
-                                <a href="#">
-                                    <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/3.png">
-                                    <p class="text-lg text-semibold mar-no text-main">RECEPCIONISTA</p>
-
-                                    <p class="text-sm">Encargado de recibir pedidos, dejar comentarios, etc. Está asociado a una sucursal que posee un cliente. </p>
-                                </a>
-                            </div>
-                        </div>
-                        <!---------------------------------->
-                  </div>
-        </div>
-
+              </div>
               </div>
               <!--===================================================-->
               <!--End page content-->

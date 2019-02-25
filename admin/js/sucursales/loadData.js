@@ -52,23 +52,13 @@ function getQuerystring(key, default_) {
 						{"data":"direccionValue"},
 						{"data":"createdDireccion"},
 						{"data":"modifiedDireccion"},
-						{"defaultContent": "<button type='button' class='recepcionistas btn btn-success'><i class='fa fa-users'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
+						{"defaultContent": "<button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
 					]
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
 
 		obtener_id_eliminar("#bodegaData tbody", t);
 		obtener_data_editar("#bodegaData tbody", t);
-		obtener_data_redireccionar("#bodegaData tbody", t);
-	}
-
-	var obtener_data_redireccionar = function(tbody, table){
-		$(tbody).on("click", "button.recepcionistas", function(){
-			var data = table.row( $(this).parents("tr") ).data();
-			var iddireccion = data.iddireccion;
-			var client = getQuerystring('client');
-			location.href="../recepcionista/?sucursal="+iddireccion+"&client="+client;
-		});
 	}
 
 	var obtener_id_eliminar = function(tbody, table){
