@@ -3,7 +3,8 @@
 	#script para hacer la carga de informacion desde la base de datos a la tabla
 	include ("../connection.php");
 
-	$query = "select * from cliente join user on (user.iduser = cliente.rutCliente ) join device on (device.user = user.iduser)";
+
+	$query = "select * from chofer";
 	$resultado = mysqli_query($conexion, $query);
 
 	if (!$resultado){
@@ -12,10 +13,8 @@
 
 		while($data = mysqli_fetch_assoc($resultado)){
 
-			$arreglo["data"][] = $data;
+			echo '<option value="'.$data["rutChofer"].'">'.$data["nombre"].'</option>';
 		}
-
-		echo json_encode($arreglo);
 
 	}
 
