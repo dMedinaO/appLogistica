@@ -11,6 +11,7 @@
 $(window).on('load', function() {
 
 	listar();
+	editar();
 
 });
     // DATA TABLES
@@ -42,11 +43,52 @@ $(window).on('load', function() {
 						{"data":"numberDevice"},
 						{"data":"createdUser"},
 						{"data":"modifiedUser"},
-						{"data":"nameRol"}
+						{"data":"nameRol"},
+						{"defaultContent": "<button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>"}
 					]
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
+			obtener_data_editar("#users tbody", t);
+	}
 
+	var obtener_data_editar = function(tbody, table){
+		$(tbody).on("click", "button.editar", function(){
+			var data = table.row( $(this).parents("tr") ).data();
+			var name = $("#frmEditar #name").val(data.nameUser);
+			var passwd = $("#frmEditar #passwd").val( data.password );
+			var email = $("#frmEditar #email").val( data.email );
+			var phone = $("#frmEditar #phone").val( data.numberDevice );
+			var iduser = $("#frmEditar #iduser").val( data.iduser );
+		});
+	}
+
+	var editar = function(){
+		$("#editar-usuario").on("click", function(){
+
+			var name = $("#frmEditar #name").val();
+			var passwd = $("#frmEditar #passwd").val();
+			var email = $("#frmEditar #email").val();
+			var phone = $("#frmEditar #phone").val();
+			var iduser = $("#frmEditar #iduser").val();
+
+			$.ajax({
+				method: "POST",
+				url: "../php/users/editData.php",
+				data: {
+						"iduser"   : iduser,
+						"name" : name,
+						"passwd"   : passwd,
+						"email" : email,
+						"phone" : phone
+					}
+
+			}).done( function( info ){
+
+				var json_info = JSON.parse( info );
+				//mostrar_mensaje( json_info );
+				location.reload(true);
+			});
+		});
 	}
 
 	var idioma_espanol = {

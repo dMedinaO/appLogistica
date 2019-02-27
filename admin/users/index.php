@@ -195,6 +195,7 @@
                               <th class="min-tablet">Creado</th>
                               <th class="min-tablet">Modificado</th>
                               <th class="min-tablet">Rol</th>
+                              <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
                           </table>
@@ -389,6 +390,69 @@
 
 
 
+        <div>
+         <form id="frmEditar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+           <input type="hidden" id="iduser" name="iduser" value="">
+           <div class="modal fade" id="myModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="true">
+               <div class="modal-dialog">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title" id="myModalLabelEdit">Editar Usuario Seleccionado</h4>
+                   </div>
+                   <div class="modal-body">
+
+
+                     <div class="form-group">
+                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name User <span class="required">*</span>
+                       </label>
+
+                       <div class="col-md-9 col-sm-9 col-xs-12">
+                         <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre de bodega">
+                       </div>
+                     </div>
+
+                     <div class="form-group">
+                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="passwd">Password <span class="required">*</span>
+                       </label>
+                       <div class="col-md-9 col-sm-9 col-xs-12">
+                         <input type="text" id="passwd" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Provincia">
+                       </div>
+                     </div>
+
+                       <div class="form-group">
+                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                         </label>
+                         <div class="col-md-9 col-sm-9 col-xs-12">
+                           <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Comuna">
+                         </div>
+                       </div>
+
+                       <div class="form-group">
+                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                         </label>
+                         <div class="col-md-9 col-sm-9 col-xs-12">
+                           <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Ciudad">
+                         </div>
+                       </div>
+                       
+                     </div>
+
+                     <div class="ln_solid"></div>
+                     <div class="form-group">
+                       <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                         <button type="reset" class="btn btn-primary">Resetear</button>
+                         <button type="button" id="editar-usuario" class="btn btn-success" data-dismiss="modal">Editar</button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                       </div>
+                     </div>
+
+                   </div>
+
+                 </div>
+               </div>
+             </form>
+           </div>
     </div>
     <!--===================================================-->
     <!-- END OF CONTAINER -->
