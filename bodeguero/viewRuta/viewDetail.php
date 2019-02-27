@@ -80,7 +80,8 @@
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
 
     <!--js para handler de usuario -->
-    <script src="../js/choferes/loadData.js"></script>
+    <script src="../js/ruta/loadDocumento.js"></script>
+    <script src="../js/ruta/loadDetalleRuta.js"></script>
 
 </head>
 
@@ -171,7 +172,11 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Choferes Disponibles en el Sistema</h1>
+                      <h1 class="page-header text-overflow">Información en ruta:
+                        <?php
+                          echo $_GET['ruta'];
+                        ?>
+                      </h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -183,24 +188,129 @@
               <!--===================================================-->
               <div id="page-content">
                 <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+
+                    <div class="panel panel-bordered panel-primary">
+
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                          Detalle Ruta
+                        </h3>
+                      </div>
+                      <!-- Contact Widget -->
+                    <!---------------------------------->
+                    <div class="panel pos-rel">
+                        <div class="pad-all ">
+
+                            <div class="panel-body">
+                              <table class="table table-hover table-vcenter">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <span class="text-main text-semibold">Nombre Ruta</span>
+                                  </td>
+                                  <td>
+                                    <span class="text-main text-semibold name"></span>
+                                  </td>
+                                 </tr>
+
+                                  <tr>
+                                      <td>
+                                        <span class="text-main text-semibold">Fecha Creación</span>
+                                      </td>
+                                      <td>
+                                          <span class="text-main text-semibold Fecha"></span>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <td>
+                                        <span class="text-main text-semibold">Estado</span>
+                                      </td>
+                                      <td>
+                                          <span class="text-main text-semibold estado"></span>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <td>
+                                        <span class="text-main text-semibold">Chofer</span>
+                                      </td>
+                                      <td>
+                                          <span class="text-main text-semibold chofer"></span>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+
+                    <div class="panel panel-bordered panel-primary">
+
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                          Opciones de carga de datos
+                        </h3>
+                      </div>
+                      <!-- Contact Widget -->
+                    <!---------------------------------->
+                    <div class="panel pos-rel">
+                        <div class="pad-all ">
+
+                            <div class="panel-body">
+                              <table class="table table-hover table-vcenter">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <span class="text-main text-semibold">Carga Manual</span>
+                                  </td>
+                                  <td>
+                                    <span class="text-main">Permite cargar elementos de forma manual, complentando un formulario de acceso con la información del documento
+                                    que será entregado.</span>
+                                  </td>
+                                 </tr>
+
+                                  <tr>
+                                      <td>
+                                        <span class="text-main text-semibold">Carga Masiva</span>
+                                      </td>
+                                      <td>
+                                          <span class="text-main">Permite la carga de múltiples documentos en un único paso, subiendo un archivo csv con la información pre dispuesta
+                                          según el formato disponible en el manual de usuario.</span>
+                                      </td>
+                                  </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
                       <div id="demo-custom-toolbar2" class="table-toolbar-left">
-                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="demo-pli-plus"></i> Agregar Chofer</button>
+                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModalManual"><i class="demo-pli-plus"></i>Carga Manual</button>
+                          <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModalMasiva"><i class="demo-pli-plus"></i>Carga Masiva</button>
                       </div>
 
                       <div class="panel-body">
-                        <table id="bodegaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="rutaDetalle" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                              <th class="min-tablet">Chofer</th>
-                              <th class="min-tablet">Rut</th>
-                              <th class="min-tablet">Fecha Nacimiento</th>
-                              <th class="min-tablet">Email</th>
-                              <th class="min-tablet">Teléfono</th>
-                              <th class="min-tablet">Name User</th>
-                              <th class="min-tablet">Password</th>
-                              <th class="min-tablet">Modificado</th>
+                              <th class="min-tablet">Cliente</th>
+                              <th class="min-tablet">Rut Cliente</th>
+                              <th class="min-tablet">Tipo Documento</th>
+                              <th class="min-tablet">Folio</th>
+                              <th class="min-tablet">Fecha Emisión</th>
+                              <th class="min-tablet">Monto</th>
                               <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
@@ -373,69 +483,66 @@
 
     <!-- modal section -->
     <!-- modal para agregar-->
-     <div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
+     <div class="modal fade" id="myModalManual" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
          <div class="modal-dialog">
            <div class="modal-content">
              <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Chofer</h4>
+               <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Documento</h4>
              </div>
              <div class="modal-body">
 
              <form id="frmAgregar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="folio">Folio Documento <span class="required">*</span>
                  </label>
 
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre chofer">
+                   <input type="text" id="folio" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Folio documento">
                  </div>
                </div>
 
                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaEmision">Fecha Emisión <span class="required">*</span>
                  </label>
 
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut (sin puntos y sin digito verificador)">
+                   <input type="text" id="fechaEmision" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Fecha: YYYY-MM-DD">
                  </div>
                </div>
 
                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha Nacimiento <span class="required">*</span>
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Ingrese Rut receptor <span class="required">*</span>
                  </label>
 
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="fecha" required="required" class="form-control col-md-7 col-xs-12" placeholder="YYYY-MM-DD">
+                   <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut, sólo numeros, sin digito verificador">
                  </div>
                </div>
 
                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="monto">Ingrese Monto <span class="required">*</span>
                  </label>
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Nombre de usuario">
+                   <input type="text" id="monto" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese monto total">
                  </div>
                </div>
 
                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoDoc">Tipo Documento <span class="required">*</span>
                  </label>
+
                  <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Teléfono">
+                   <select id="tipoDoc" class="form-control">
+                     <option value="33">Factura</option>
+                     <option value="52">Guia de Despacho</option>
+                     <option value="1">Otros</option>
+                   </select>
                  </div>
                </div>
 
-               <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                 </label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
-                   <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
-                 </div>
-               </div>
 
                <div class="ln_solid"></div>
-
 
              </div>
 
@@ -443,7 +550,7 @@
                <div class="form-group">
                  <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                    <button type="reset" class="btn btn-primary">Resetear</button>
-                   <button type="button" id="agregar-bodega" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                   <button type="button" id="agregar-documento" class="btn btn-success" data-dismiss="modal">Aceptar</button>
                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                  </div>
                </div>
@@ -456,20 +563,20 @@
      <!-- modal para eliminar -->
      <div>
        <form id="frmEliminar" action="" method="POST">
-         <input type="hidden" id="iduser" name="iduser" value="">
+         <input type="hidden" id="iddocumento" name="iddocumento" value="">
          <!-- Modal -->
          <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel">
            <div class="modal-dialog" role="document">
              <div class="modal-content">
                <div class="modal-header">
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Chofer</h4>
+                 <h4 class="modal-title" id="modalEliminarLabel">Eliminar Documento</h4>
                </div>
                <div class="modal-body">
-                 ¿Está seguro de eliminar el chofer seleccionado?<strong data-name=""></strong>
+                 ¿Está seguro de eliminar el documento seleccionado?<strong data-name=""></strong>
                </div>
                <div class="modal-footer">
-                 <button type="button" id="eliminar-usuario" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                 <button type="button" id="eliminar-documento" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                </div>
              </div>
@@ -482,64 +589,39 @@
      <!-- modal para editar un nuevo elemento -->
      <div>
      	<form id="frmEditar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
-     		<input type="hidden" id="oldRut" name="oldRut" value="">
+     		<input type="hidden" id="iddocumento" name="iddocumento" value="">
      		<div class="modal fade" id="myModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="true">
      				<div class="modal-dialog">
      					<div class="modal-content">
      						<div class="modal-header">
      							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-     							<h4 class="modal-title" id="myModalLabelEdit">Editar Chofer Seleccionado</h4>
+     							<h4 class="modal-title" id="myModalLabelEdit">Editar Documento Seleccionado</h4>
      						</div>
      						<div class="modal-body">
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="folio">Folio Documento <span class="required">*</span>
                     </label>
 
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese nombre chofer">
+                      <input type="text" id="folio" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Folio documento">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rut">Rut <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaEmision">Fecha Emisión <span class="required">*</span>
                     </label>
 
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="rut" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese rut (sin puntos y sin digito verificador)">
+                      <input type="text" id="fechaEmision" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Fecha: YYYY-MM-DD">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Fecha Nacimiento <span class="required">*</span>
-                    </label>
-
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="fecha" required="required" class="form-control col-md-7 col-xs-12" placeholder="YYYY-MM-DD">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">User Name <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="monto">Ingrese Monto <span class="required">*</span>
                     </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Nombre de usuario">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Teléfono <span class="required">*</span>
-                    </label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Teléfono">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                    </label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese Email">
+                      <input type="text" id="monto" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese monto total">
                     </div>
                   </div>
 
@@ -547,7 +629,7 @@
      						  <div class="form-group">
        							<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
        								<button type="reset" class="btn btn-primary">Resetear</button>
-       								<button type="button" id="editar-usuario" class="btn btn-success" data-dismiss="modal">Editar</button>
+       								<button type="button" id="editar-documento" class="btn btn-success" data-dismiss="modal">Editar</button>
        								<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
        							</div>
      						  </div>

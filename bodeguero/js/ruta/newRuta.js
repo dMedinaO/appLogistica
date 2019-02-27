@@ -38,7 +38,7 @@ $(document).ready(function() {
 				console.log(json_info);
 
         if (json_info.respuesta == "BIEN"){
-          location.href = "../viewRuta/viewDetail.php?ruta"+json_info.ruta;
+          location.href = "../viewRuta/viewDetail.php?ruta="+json_info.ruta;
         }else{
           $('#loading').hide();
           $('#errorResponse').show();

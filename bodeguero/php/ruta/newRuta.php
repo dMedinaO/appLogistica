@@ -10,12 +10,12 @@
   $idruta = time();
 
   #consulta a la base de datos para realizar la insercion...
-  $query = "insert into ruta values ($idruta, '$name', '$jornada', $chofer, NOW(), NOW())";
+  $query = "insert into ruta values ($idruta, '$name', '$jornada', $chofer, NOW(), NOW(), 'INICIADO')";
 
   $resultado = mysqli_query($conexion, $query);
 	$informacion = verificar_resultado( $resultado, $conexion, $query);
   $informacion['ruta'] = $idruta;
-  
+
 	echo json_encode($informacion);
 	cerrar( $conexion );
 
