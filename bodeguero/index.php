@@ -79,6 +79,19 @@
     <link href="plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
     <!--Premium Line Icons [ OPTIONAL ]-->
     <link href="premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+
+    <!-- para los higcharts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+    <script src="js/index/loadDataPanel.js"></script>
+    <script src="js/index/rutasByEstado.js"></script>
+    <script src="js/index/documentosCliente.js"></script>
+    <script src="js/index/rutasByChofer.js"></script>
+    <script src="js/index/montosByCliente.js"></script>
+    <script src="js/index/loadDocumentsByDate.js"></script>
+
 </head>
 
 <!--TIPS-->
@@ -180,60 +193,132 @@
                 <!--===================================================-->
                 <div id="page-content">
 
-					<div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 01</h3>
-		      			 </div>
-		      			 <div class="panel-body">
-		      			 </div>
-		      			</div>
-      			</div>
+                  <div class="row">
 
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 02</h3>
-		      			 </div>
-		      			 <div class="panel-body">
-		      			 </div>
-		      			</div>
-      			</div>
-
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
-		      			<div class="panel-heading">
-		      				<h3 class="panel-title">Data Panel 03</h3>
-		      			 </div>
-		      			 <div class="panel-body">
-		      			 </div>
-		      			</div>
-      			</div>
-          </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+    					            <div class="media-left">
+    					                <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+    					                <i class="fa fa-file fa-2x"></i>
+    					                </span>
+    					            </div>
+    					            <div class="media-body">
+    					                <p class="text-2x mar-no text-semibold text-main panel1"></p>
+    					                <p class="text-muted mar-no">Documentos Procesados</p>
+    					            </div>
+    					        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+    					            <div class="media-left">
+    					                <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+    					                <i class="fa fa-car fa-2x"></i>
+    					                </span>
+    					            </div>
+    					            <div class="media-body">
+    					                <p class="text-2x mar-no text-semibold text-main panel2"></p>
+    					                <p class="text-muted mar-no">Choferes</p>
+    					            </div>
+    					        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+    					            <div class="media-left">
+    					                <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+    					                <i class="fa fa-map fa-2x"></i>
+    					                </span>
+    					            </div>
+    					            <div class="media-body">
+    					                <p class="text-2x mar-no text-semibold text-main panel3"></p>
+    					                <p class="text-muted mar-no">Rutas Pendientes</p>
+    					            </div>
+    					        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+    					            <div class="media-left">
+    					                <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+    					                <i class="fa fa-users fa-2x"></i>
+    					                </span>
+    					            </div>
+    					            <div class="media-body">
+    					                <p class="text-2x mar-no text-semibold text-main panel4"></p>
+    					                <p class="text-muted mar-no">Clientes</p>
+    					            </div>
+    					        </div>
+                    </div>
+                  </div>
 
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
 							<div class="panel">
 					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Graphic Value 01</h3>
+					     		<h3 class="panel-title">Documentos por Fecha</h3>
 					      </div>
 					      <div class="panel-body">
+                  <div id="docsByDate">
+
+                  </div>
 					      </div>
 					     </div>
 						</div>
           </div>
 
           <div class="row">
-						<div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<div class="panel">
 					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Graphic Value 02</h3>
+					     		<h3 class="panel-title">Rutas por estado</h3>
 					      </div>
 					      <div class="panel-body">
+                  <div id="rutasEstado">
+
+                  </div>
 					      </div>
 					     </div>
 						</div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+							<div class="panel">
+					   		<div class="panel-heading">
+					     		<h3 class="panel-title">Documentos por cliente</h3>
+					      </div>
+					      <div class="panel-body">
+                  <div id="docClientes">
+                  </div>
+					      </div>
+					     </div>
+						</div>
+
+          </div>
+
+          <div class="row">
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<div class="panel">
+					   		<div class="panel-heading">
+					     		<h3 class="panel-title">Rutas por chofer</h3>
+					      </div>
+					      <div class="panel-body">
+                  <div id="rutasByChofer">
+
+                  </div>
+					      </div>
+					     </div>
+						</div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+							<div class="panel">
+					   		<div class="panel-heading">
+					     		<h3 class="panel-title">Montos por cliente</h3>
+					      </div>
+					      <div class="panel-body">
+                  <div id="montosByCliente">
+
+                  </div>
+					      </div>
+					     </div>
+						</div>
+
           </div>
 
         </div>
