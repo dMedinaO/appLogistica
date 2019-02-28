@@ -23,6 +23,7 @@ $(function () {
 					},
 					chart: {
         		type: 'spline'
+
 			    },
 			    title: {
 			        text: ''
