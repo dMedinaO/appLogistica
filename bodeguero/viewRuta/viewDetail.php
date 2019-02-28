@@ -8,7 +8,6 @@
 
     <!--STYLESHEET-->
     <!--=================================================-->
-
     <!--Open Sans Font [ OPTIONAL ]-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
@@ -20,21 +19,17 @@
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="../css/nifty.min.css" rel="stylesheet">
 
+
     <!--Nifty Premium Icon [ DEMONSTRATION ]-->
     <link href="../css/demo/nifty-demo-icons.min.css" rel="stylesheet">
 
 
-    <!--Demo [ DEMONSTRATION ]-->
-    <link href="../css/demo/nifty-demo.min.css" rel="stylesheet">
-
-
-
     <!--DataTables [ OPTIONAL ]-->
     <link href="../plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
-	  <link href="../plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css" rel="stylesheet">
-    <!--JSTree [ OPTIONAL ]-->
-    <link href="../plugins/jstree/themes/default/style.min.css" rel="stylesheet">
+    <link href="../plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css" rel="stylesheet">
 
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <link href="../plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
     <!--JAVASCRIPT-->
     <!--=================================================-->
 
@@ -54,19 +49,12 @@
     <!--NiftyJS [ RECOMMENDED ]-->
     <script src="../js/nifty.min.js"></script>
 
+    <!--Dropzone [ OPTIONAL ]-->
+    <script src="../plugins/dropzone/dropzone.min.js"></script>
+    <link href="../plugins/dropzone/dropzone.min.css" rel="stylesheet">
+    <script src="../js/formatDropzone.js"></script>
 
     <!--=================================================-->
-
-    <!--Demo script [ DEMONSTRATION ]-->
-    <script src="../js/demo/nifty-demo.min.js"></script>
-
-    <!--JSTree [ OPTIONAL ]-->
-    <script src="../plugins/jstree/jstree.min.js"></script>
-
-    <!--DataTables [ OPTIONAL ]-->
-    <script src="../plugins/datatables/media/js/jquery.dataTables.js"></script>
-	  <script src="../plugins/datatables/media/js/dataTables.bootstrap.js"></script>
-	  <script src="../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -78,6 +66,20 @@
     <link href="../plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
     <!--Premium Line Icons [ OPTIONAL ]-->
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+    <link href="../plugins/spinkit/css/spinkit.min.css" rel="stylesheet">
+    <script src="../plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
+
+
+    <!--DataTables [ OPTIONAL ]-->
+    <link href="../plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+	  <link href="../plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css" rel="stylesheet">
+    <!--JSTree [ OPTIONAL ]-->
+    <link href="../plugins/jstree/themes/default/style.min.css" rel="stylesheet">
+
+    <!--DataTables [ OPTIONAL ]-->
+    <script src="../plugins/datatables/media/js/jquery.dataTables.js"></script>
+	  <script src="../plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+	  <script src="../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 
     <!--js para handler de usuario -->
     <script src="../js/ruta/loadDocumento.js"></script>
@@ -296,6 +298,31 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
+
+                      <div class="col-sm-12 col-md-12 col-lg-12" id="loading" style="display:none;">
+                          <div class="panel">
+                              <div class="panel-body">
+                                  <div class="sk-three-bounce">
+                                      <div class="sk-child sk-bounce1"></div>
+                                      <div class="sk-child sk-bounce2"></div>
+                                      <div class="sk-child sk-bounce3"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-sm-12 col-md-12 col-lg-12" id="errorResponse" style="display:none;">
+                        <div class="alert alert-danger" role="alert">
+                          Error al cargar los datos, favor revisar el set de datos
+                        </div>
+                      </div>
+
+                      <div class="col-sm-12 col-md-12 col-lg-12" id="okResponse" style="display:none;">
+                        <div class="alert alert-success" role="alert">
+                          Carga generada de manera exitosa
+                        </div>
+                      </div>
+
                       <div id="demo-custom-toolbar2" class="table-toolbar-left">
                           <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModalManual"><i class="demo-pli-plus"></i>Carga Manual</button>
                           <button id="demo-dt-addrow-btn" class="btn btn-primary" data-toggle="modal" data-target="#myModalMasiva"><i class="demo-pli-plus"></i>Carga Masiva</button>
@@ -491,7 +518,6 @@
                <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Documento</h4>
              </div>
              <div class="modal-body">
-
              <form id="frmAgregar" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
                <div class="form-group">
                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="folio">Folio Documento <span class="required">*</span>
@@ -551,6 +577,54 @@
                  <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                    <button type="reset" class="btn btn-primary">Resetear</button>
                    <button type="button" id="agregar-documento" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </form>
+     </div>
+
+     <!-- modal para agregar mediante carga masiva -->
+     <div class="modal fade" id="myModalMasiva" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title" id="myModalLabel">Carga Masiva</h4>
+             </div>
+             <div class="modal-body">
+
+               <form id="frmAgregarFile" action="../php/uploadFile.php" class="dropzone" >
+                      <div class="dz-default dz-message">
+                          <div class="dz-icon">
+                              <i class="demo-pli-upload-to-cloud icon-5x"></i>
+                          </div>
+                          <div>
+                            <span class="dz-text">Arrastra tu archivo aquí!</span>
+                            <p class="text-sm text-muted">Has click para hacerlo de manera manual</p>
+                          </div>
+                      </div>
+                      <div class="fallback">
+                          <input name="file" type="file" multiple>
+                      </div>
+                  </form>
+                  <br>
+                  <br>
+
+
+             <form id="frmAgregarMasiva" action="" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+
+               <div class="ln_solid"></div>
+
+             </div>
+
+             <div class="modal-footer">
+               <div class="form-group">
+                 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                   <button type="reset" class="btn btn-primary">Resetear</button>
+                   <button type="button" id="agregar-masiva" class="btn btn-success" data-dismiss="modal">Aceptar</button>
                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                  </div>
                </div>

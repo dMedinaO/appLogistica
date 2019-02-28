@@ -4,6 +4,7 @@ $(window).on('load', function() {
 	guardar();
 	eliminar();
 	editar();
+	guardarMasivo();
 
 });
     // DATA TABLES
@@ -137,6 +138,36 @@ $(window).on('load', function() {
 				console.log(json_info);
 				//mostrar_mensaje( json_info );
 				location.reload(true);
+			});
+		});
+	}
+
+	var guardarMasivo = function(){
+		$("#agregar-masiva").on("click", function(){
+			$('#loading').show();
+			var ruta = getQuerystring('ruta');
+
+			$.ajax({
+				method: "POST",
+				url: "../php/ruta/addDataMasiva.php",
+				data: {
+						"ruta" : ruta
+					}
+
+			}).done( function( info ){
+
+				var json_info = JSON.parse( info );
+				console.log(json_info);
+				if (json_info.process="OK"){
+					$('#loading').hide();
+					$('#okResponse').show();
+					setTimeout("location.href=''", 5000);
+
+				}else{
+					$('#loading').hide();
+					$('#errorResponse').show();
+					setTimeout("location.href=''", 5000);
+				}
 			});
 		});
 	}

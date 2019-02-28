@@ -41,13 +41,20 @@ $(window).on('load', function() {
 
 		obtener_id_eliminar("#rutaData tbody", t);
 		obtener_data_editar("#rutaData tbody", t);
-		//detalleRuta("#rutaData tbody", t);
+		detalleRuta("#rutaData tbody", t);
 	}
 
 	var obtener_id_eliminar = function(tbody, table){
 		$(tbody).on("click", "button.eliminar", function(){
 			var data = table.row( $(this).parents("tr") ).data();
 			var idrutas = $("#frmEliminar #idrutas").val( data.idrutas );
+		});
+	}
+
+	var detalleRuta = function(tbody, table){
+		$(tbody).on("click", "button.detalle", function(){
+			var data = table.row( $(this).parents("tr") ).data();
+			location.href="viewDetail.php?ruta="+data.idrutas;
 		});
 	}
 
