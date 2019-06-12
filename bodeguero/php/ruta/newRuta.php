@@ -15,6 +15,7 @@
   $resultado = mysqli_query($conexion, $query);
 	$informacion = verificar_resultado( $resultado, $conexion, $query);
   $informacion['ruta'] = $idruta;
+  $informacion['query'] = $query;
 
 	echo json_encode($informacion);
 	cerrar( $conexion );
