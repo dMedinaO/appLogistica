@@ -1,0 +1,46 @@
+
+
+POST http://localhost/toexpress/public/location.php
+content-type: application/json
+
+{
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0b2V4cHJlc3MuY2wiLCJhdWQiOiJ1c2VycyIsImlhdCI6MTU2MTI0NjI4NCwibmJmIjoxNTYxMjQ2Mjg5LCJleHAiOjE1OTI3ODIyODQsImRhdGEiOnsiaWQiOjE4NzA5NzEyNiwibmFtZSI6IkVyaWNrIFNhbmh1ZXphIn19.w-g3J-D7RJiH7bj89LbmkPZGUk_h0UHL5Rq-9T_kELQ",
+    "rut": "10376117-4",
+    "latitude": -35.4480011,
+    "longitude": -71.6816109
+}
+
+###
+
+
+POST http://localhost/toexpress/public/delivery.php
+content-type: application/json
+
+{
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0b2V4cHJlc3MuY2wiLCJhdWQiOiJ1c2VycyIsImlhdCI6MTU2MTI0NjI4NCwibmJmIjoxNTYxMjQ2Mjg5LCJleHAiOjE1OTI3ODIyODQsImRhdGEiOnsiaWQiOjE4NzA5NzEyNiwibmFtZSI6IkVyaWNrIFNhbmh1ZXphIn19.w-g3J-D7RJiH7bj89LbmkPZGUk_h0UHL5Rq-9T_kELQ",
+    "folio": 11111,
+    "estado": "ENTREGADO",
+    "receptor": "Jusan Perez",
+    "motivo": "asfasdasdasd"
+}
+
+###
+
+GET http://localhost/toexpress/public/ruta.php?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0b2V4cHJlc3MuY2wiLCJhdWQiOiJ1c2VycyIsImlhdCI6MTU2MTMzNzgyNCwibmJmIjoxNTYxMzM3ODI0LCJleHAiOjE1OTI4NzM4MjQsImRhdGEiOnsiaWQiOjE4NzA5NzEyNiwibmFtZSI6IkVyaWNrIFNhbmh1ZXphIn19.vM0msYJSSmjO8LpFuX2hUnTPTKVoOlJu2vR9PPvUha4
+content-type: application/json
+
+{
+
+}
+
+
+### 
+
+POST http://localhost/toexpress/public/security/login.php HTTP/1.1
+content-type: application/json
+
+{
+    "id": 187097126,
+    "password": "test"
+}
+

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.62, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: dbLogistica
 -- ------------------------------------------------------
--- Server version	5.7.23-0ubuntu0.16.04.1
+-- Server version	5.5.62-0+deb8u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -93,7 +93,7 @@ CREATE TABLE `chofer` (
 
 LOCK TABLES `chofer` WRITE;
 /*!40000 ALTER TABLE `chofer` DISABLE KEYS */;
-INSERT INTO `chofer` VALUES (18228843,'CHOFER01','1992-03-15 00:00:00','2019-02-25 01:07:47','2019-02-25 01:07:47'),(18344821,'CHOFER02','1993-11-26 00:00:00','2019-02-25 01:08:16','2019-02-25 01:08:16');
+INSERT INTO `chofer` VALUES (18228843,'CHOFER01','1992-03-15 00:00:00','2019-02-25 01:07:47','2019-02-25 01:07:47'),(18344821,'CHOFER02','1993-11-26 00:00:00','2019-02-25 01:08:16','2019-02-25 01:08:16'),(81457301,'Erick Sanhueza','2019-06-24 11:38:45','2019-06-24 11:38:45','2019-06-24 11:38:45');
 /*!40000 ALTER TABLE `chofer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,11 +131,14 @@ DROP TABLE IF EXISTS `comentarioRecepcion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comentarioRecepcion` (
-  `idcomentario` int(11) NOT NULL,
+  `idcomentario` int(11) NOT NULL AUTO_INCREMENT,
   `nombreRecepcion` varchar(450) NOT NULL,
   `comentarioPedido` varchar(4500) NOT NULL,
   `fechaComentario` datetime NOT NULL,
   `tipoComentario` varchar(45) NOT NULL,
+  `estado` varchar(50) DEFAULT NULL,
+  `motivo` varchar(255) DEFAULT NULL,
+  `receptor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idcomentario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -157,10 +160,18 @@ DROP TABLE IF EXISTS `comprobante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comprobante` (
-  `idcomprobante` int(11) NOT NULL,
+  `idcomprobante` int(11) NOT NULL AUTO_INCREMENT,
+  `idruta` int(11) DEFAULT NULL,
+  `iddocumento` int(11) DEFAULT NULL,
   `nombreComprobante` varchar(450) NOT NULL,
   `fechaComprobante` datetime NOT NULL,
-  PRIMARY KEY (`idcomprobante`)
+  `path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idcomprobante`),
+  UNIQUE KEY `path` (`path`),
+  KEY `idruta` (`idruta`),
+  KEY `iddocumento` (`iddocumento`),
+  CONSTRAINT `comprobante_ibfk_1` FOREIGN KEY (`idruta`) REFERENCES `documento_en_ruta` (`ruta`),
+  CONSTRAINT `comprobante_ibfk_2` FOREIGN KEY (`iddocumento`) REFERENCES `documento_en_ruta` (`documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -291,7 +302,7 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
-INSERT INTO `documento` VALUES (189307,52,189307,'2018-12-11 00:00:00',4217717,'96885930'),(189323,52,189323,'2018-12-11 00:00:00',1959335,'96885930'),(189326,52,189326,'2018-12-11 00:00:00',1959335,'96885930'),(189328,52,189328,'2018-12-11 00:00:00',6071142,'96885930'),(189332,52,189332,'2018-12-11 00:00:00',1959335,'96885930'),(189337,52,189337,'2018-12-11 00:00:00',1959335,'96885930'),(189339,52,189339,'2018-12-11 00:00:00',1959335,'96885930'),(189350,52,189350,'2018-12-11 00:00:00',1959335,'96885930'),(189352,52,189352,'2018-12-11 00:00:00',1959335,'96885930'),(196981,52,196981,'2019-02-13 00:00:00',1666000,'61980320'),(197062,52,197062,'2019-02-14 00:00:00',1606500,'96885930'),(197075,52,197075,'2019-02-14 00:00:00',1958740,'96885930'),(197280,52,197280,'2019-02-18 00:00:00',45886400,'61608204'),(465934,33,465934,'2019-02-14 00:00:00',2130219,'61980320');
+INSERT INTO `documento` VALUES (189307,52,189307,'2018-12-11 00:00:00',4217717,'96885930'),(189323,52,189323,'2018-12-11 00:00:00',1959335,'96885930'),(189326,52,189326,'2018-12-11 00:00:00',1959335,'96885930'),(189328,52,189328,'2018-12-11 00:00:00',6071142,'96885930'),(189332,52,189332,'2018-12-11 00:00:00',1959335,'96885930'),(189337,52,189337,'2018-12-11 00:00:00',1959335,'96885930'),(189339,52,189339,'2018-12-11 00:00:00',1959335,'96885930'),(189350,52,189350,'2018-12-11 00:00:00',1959335,'96885930'),(189352,52,189352,'2018-12-11 00:00:00',1959335,'96885930'),(197062,52,197062,'2019-02-14 00:00:00',1606500,'96885930'),(197075,52,197075,'2019-02-14 00:00:00',1958740,'96885930'),(200000,52,200000,'2019-06-24 11:44:12',1241242,'60910000');
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,14 +317,11 @@ CREATE TABLE `documento_en_ruta` (
   `documento` int(11) NOT NULL,
   `ruta` int(11) NOT NULL,
   `comentario` int(11) DEFAULT NULL,
-  `comprobante` int(11) DEFAULT NULL,
   PRIMARY KEY (`documento`,`ruta`),
   KEY `fk_documento_has_ruta_ruta1_idx` (`ruta`),
   KEY `fk_documento_has_ruta_documento1_idx` (`documento`),
   KEY `fk_documento_en_ruta_comentarioRecepcion1_idx` (`comentario`),
-  KEY `fk_documento_en_ruta_comprobante1_idx` (`comprobante`),
-  CONSTRAINT `fk_documento_en_ruta_comentarioRecepcion1` FOREIGN KEY (`comentario`) REFERENCES `comentarioRecepcion` (`idcomentario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_documento_en_ruta_comprobante1` FOREIGN KEY (`comprobante`) REFERENCES `comprobante` (`idcomprobante`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `documento_en_ruta_ibfk_1` FOREIGN KEY (`comentario`) REFERENCES `comentarioRecepcion` (`idcomentario`) ON DELETE SET NULL,
   CONSTRAINT `fk_documento_has_ruta_documento1` FOREIGN KEY (`documento`) REFERENCES `documento` (`iddocumento`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_documento_has_ruta_ruta1` FOREIGN KEY (`ruta`) REFERENCES `ruta` (`idrutas`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -325,7 +333,7 @@ CREATE TABLE `documento_en_ruta` (
 
 LOCK TABLES `documento_en_ruta` WRITE;
 /*!40000 ALTER TABLE `documento_en_ruta` DISABLE KEYS */;
-INSERT INTO `documento_en_ruta` VALUES (189307,1551274085,NULL,NULL),(189323,1551274085,NULL,NULL),(189326,1551274085,NULL,NULL),(189328,1551274085,NULL,NULL),(189332,1551274085,NULL,NULL),(189337,1551274085,NULL,NULL),(189339,1551274085,NULL,NULL),(189350,1551274085,NULL,NULL),(189352,1551274085,NULL,NULL),(196981,1551273881,NULL,NULL),(197062,1551274085,NULL,NULL),(197075,1551274085,NULL,NULL),(197280,1551273881,NULL,NULL),(465934,1551273881,NULL,NULL);
+INSERT INTO `documento_en_ruta` VALUES (189307,1551274085,NULL),(189323,1551274085,NULL),(189326,1551274085,NULL),(189328,1551274085,NULL),(189332,1551274085,NULL),(189337,1551274085,NULL),(189339,1551274085,NULL),(189350,1551274085,NULL),(189352,1551274085,NULL),(197062,1551274085,NULL),(197075,1551281741,NULL);
 /*!40000 ALTER TABLE `documento_en_ruta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,15 +345,18 @@ DROP TABLE IF EXISTS `geoPoint`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `geoPoint` (
-  `idgeoPoint` int(11) NOT NULL,
+  `idgeopoint` int(11) NOT NULL AUTO_INCREMENT,
   `longitude` double NOT NULL,
   `latitude` double NOT NULL,
   `createdPoint` datetime NOT NULL,
   `modifiedPoint` datetime NOT NULL,
-  `direccion` int(11) NOT NULL,
-  PRIMARY KEY (`idgeoPoint`),
+  `direccion` int(11) DEFAULT NULL,
+  `rutCliente` varchar(45) NOT NULL,
+  PRIMARY KEY (`idgeopoint`),
   KEY `fk_geoPoint_direccion1_idx` (`direccion`),
-  CONSTRAINT `fk_geoPoint_direccion1` FOREIGN KEY (`direccion`) REFERENCES `direccion` (`iddireccion`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `rutCliente` (`rutCliente`),
+  CONSTRAINT `fk_geoPoint_direccion1` FOREIGN KEY (`direccion`) REFERENCES `direccion` (`iddireccion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `geoPoint_ibfk_1` FOREIGN KEY (`rutCliente`) REFERENCES `cliente` (`rutCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -411,7 +422,7 @@ CREATE TABLE `ruta` (
 
 LOCK TABLES `ruta` WRITE;
 /*!40000 ALTER TABLE `ruta` DISABLE KEYS */;
-INSERT INTO `ruta` VALUES (1551273881,'Ruta demo2','MaÃ±ana',18228843,'2019-02-27 10:24:41','2019-02-27 13:23:02','INICIADO'),(1551274085,'Ruta demo 2','Tarde',18228843,'2019-02-27 10:28:05','2019-02-27 13:24:29','INICIADO'),(1551281741,'Ruta estado','Tarde',18344821,'2019-02-27 12:35:41','2019-02-27 12:35:41','INICIADO');
+INSERT INTO `ruta` VALUES (1551273881,'Ruta demo2','MaÃ±ana',18228843,'2019-02-27 10:24:41','2019-02-27 13:23:02','INICIADO'),(1551274085,'Ruta demo 2','Tarde',18228843,'2019-02-27 10:28:05','2019-02-27 13:24:29','INICIADO'),(1551281741,'Ruta estado','MAÑANA',18344821,'2019-02-27 12:35:41','2019-02-27 12:35:41','INICIADO'),(1560345627,'Nueva ruta demo','MaÃ±ana',18344821,'2019-06-12 09:20:27','2019-06-12 09:20:27','INICIADO'),(1560345951,'Ruta testing DM','Otros',18228843,'2019-06-12 09:25:51','2019-06-12 09:25:51','INICIADO'),(2147483647,'RUTA DE PRUEBAS ONLINE','MAÑANA',81457301,'2019-06-24 11:41:50','2019-06-24 11:41:50','INICIADO');
 /*!40000 ALTER TABLE `ruta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -470,7 +481,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (18228843,'chofer01','18228843','2019-02-25 01:07:47','2019-02-25 01:07:47',3,'david.medina@cebib.cl'),(18344821,'dinostroza','18344821','2019-02-25 01:08:17','2019-02-25 01:08:17',3,'david.medina@cebib.cl'),(60910000,'uchile','60910000','2019-02-27 20:16:50','2019-02-27 20:17:05',4,'-'),(61608204,'hsanjuan','61608204','2019-02-27 20:23:46','2019-02-27 20:23:46',4,'davidmoandres.10@gmail.com'),(61980320,'elcarmenhp','61980320','2019-02-25 01:10:44','2019-02-25 01:10:44',4,'david.medina@cebib.cl'),(96530470,'cdavila','96530470','2019-02-27 20:19:44','2019-02-27 20:19:44',4,'-'),(96885930,'cbicentenario','96885930','2019-02-27 20:21:12','2019-02-27 20:21:12',4,'-'),(99573490,'ucchristus','99573490','2019-02-27 20:17:48','2019-02-27 20:17:48',4,'-'),(1551067564,'bodeguero01','nuevaClave','2019-02-25 01:06:04','2019-02-27 09:22:54',2,'dmedina@angular.cl'),(1551067585,'bodeguero02','bodeguero02','2019-02-25 01:06:25','2019-02-25 01:06:25',2,'david.medina@cebib.cl');
+INSERT INTO `user` VALUES (18228843,'chofer01','18228843','2019-02-25 01:07:47','2019-02-25 01:07:47',3,'david.medina@cebib.cl'),(18344821,'dinostroza','18344821','2019-02-25 01:08:17','2019-02-25 01:08:17',3,'david.medina@cebib.cl'),(60910000,'uchile','60910000','2019-02-27 20:16:50','2019-02-27 20:17:05',4,'-'),(61608204,'hsanjuan','61608204','2019-02-27 20:23:46','2019-02-27 20:23:46',4,'davidmoandres.10@gmail.com'),(61980320,'elcarmenhp','61980320','2019-02-25 01:10:44','2019-02-25 01:10:44',4,'david.medina@cebib.cl'),(81457301,'Erick Sanhueza','test','2019-06-24 11:36:25','2019-06-24 11:36:25',3,'ericko.sanhueza@gmail.com'),(96530470,'cdavila','96530470','2019-02-27 20:19:44','2019-02-27 20:19:44',4,'-'),(96885930,'cbicentenario','96885930','2019-02-27 20:21:12','2019-02-27 20:21:12',4,'-'),(99573490,'ucchristus','99573490','2019-02-27 20:17:48','2019-02-27 20:17:48',4,'-'),(1551067564,'bodeguero01','nuevaClave','2019-02-25 01:06:04','2019-02-27 09:22:54',2,'dmedina@angular.cl'),(1551067585,'bodeguero02','bodeguero02','2019-02-25 01:06:25','2019-02-25 01:06:25',2,'david.medina@cebib.cl');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -540,4 +551,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-27 23:51:46
+-- Dump completed on 2019-07-16  0:02:17

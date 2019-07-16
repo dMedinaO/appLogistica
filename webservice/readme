@@ -1,0 +1,11 @@
+
+
+ejecutar consultas de alter.sql a la base de datos
+
+mysql -u <usuario> -p <nombre db> < alter.sql
+
+
+cambiar el dueño la carpeta /images a "www-data" (debian y derivados) o "http" (centos).
+
+sudo chown <www-data o http> images -R
+
