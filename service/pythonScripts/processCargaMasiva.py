@@ -35,7 +35,7 @@ try:
 
         #formamos la consulta del documento
         queryDoc = "insert into documento values (%d, %d, %d, '%s', %d, %d)" % (int(folio), int(tipoDoc), int(folio), fecha, int(monto), int(rut))
-        queryDoc_ruta = "insert into documento_en_ruta values (%d, %d, NULL, NULL)" % (int(folio), int(ruta))
+        queryDoc_ruta = "insert into documento_en_ruta values (%d, %d, NULL)" % (int(folio), int(ruta))
         handler.insertToTable(queryDoc, connect)
         handler.insertToTable(queryDoc_ruta, connect)
 

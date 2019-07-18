@@ -12,7 +12,7 @@
 	$iddocumento = time();
 
 	$query = "insert into documento values ($iddocumento, $tipoDoc, $folio, '$fechaEmision', $monto, $rut)";
-	$query2 = "insert into documento_en_ruta values ($iddocumento, $ruta, NULL, NULL)";
+	$query2 = "insert into documento_en_ruta values ($iddocumento, $ruta, NULL)";
 	$resultado = mysqli_query($conexion, $query);
 
 	$informacion = verificar_resultado( $resultado, $conexion, $query2);

@@ -195,9 +195,9 @@
 
                             <div class="col-md-5 col-sm-5 col-xs-12">
                               <select id="jornada" class="form-control">
-                                <option>Mañana</option>
-                                <option>Tarde</option>
-                                <option>Otros</option>
+                                <option>MATUTINA</option>
+                                <option>TARDE</option>
+                                <option>OTROS</option>
                               </select>
                             </div>
                           </div>

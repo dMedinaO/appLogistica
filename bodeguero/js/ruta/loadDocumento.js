@@ -37,7 +37,7 @@ $(window).on('load', function() {
 						{"data":"folio"},
 						{"data":"fechaEmision"},
 						{"data":"monto"},
-						{"defaultContent": "<button type='button' class='reasignar btn btn-success'><i class='fa fa-user'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
+						{"defaultContent": "<button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
 					]
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
@@ -137,7 +137,7 @@ $(window).on('load', function() {
 				var json_info = JSON.parse( info );
 				console.log(json_info);
 				//mostrar_mensaje( json_info );
-				location.reload(true);
+				//location.reload(true);
 			});
 		});
 	}
