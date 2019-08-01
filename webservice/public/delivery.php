@@ -92,12 +92,24 @@ try {
 
             $insert = mysqli_query($conn, $query);
 
-
             if ($insert){
                 // se actualiza el documento_en_ruta para indicar su comentario.
                 $id = mysqli_insert_id($conn);
                 $query = "UPDATE documento_en_ruta SET comentario = $id WHERE documento=".$doc['iddocumento']; 
                 $update = mysqli_query($conn, $query);
+            }
+         
+            // se revisa si ya se entregaron todos los documentos de la ruta
+            $query = "SELECT ruta, SUM(CASE WHEN comentario IS NULL THEN 1 ELSE 0 END) pendientes FROM documento_en_ruta WHERE ruta = ".$doc["ruta"]." GROUP BY ruta";
+            $ruta = mysqli_query($conn, $query);
+            if ($ruta != null && $insert != null){
+                $pendientes = mysqli_fetch_assoc($ruta)["pendientes"];
+                if ($pendientes == 0){
+                    mysqli_query($conn, "UPDATE ruta SET estado = 'TERMINADO' WHERE idrutas = " . $doc["ruta"]);
+                }
+                else{
+                    mysqli_query($conn, "UPDATE ruta SET estado = 'EN PROCESO' WHERE idrutas = " . $doc["ruta"]);
+                }
             }
 
         }
