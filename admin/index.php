@@ -130,7 +130,7 @@
                                     <!--<img class="img-circle img-user media-object" src="img/profile-photos/1.png" alt="Profile Picture">-->
                                     <i class="demo-pli-male"></i>
                                 </span>
-                                <div class="username hidden-xs">Root User</div>
+                                <div class="username hidden-xs">Admin User</div>
                             </a>
 
 
@@ -138,7 +138,7 @@
 
                                 <!-- Dropdown footer -->
                                 <div class="pad-all text-right">
-                                    <a href="" class="btn btn-primary">
+                                    <a href="http://toexpress.cl" class="btn btn-primary">
                                         <i class="demo-pli-unlock"></i> Salir!
                                     </a>
                                 </div>
@@ -269,12 +269,12 @@
                                             <span class="pull-right dropdown-toggle">
                                                 <i class="dropdown-caret"></i>
                                             </span>
-                                            <p class="mnp-name">Root</p>
+                                            <p class="mnp-name">Administrador</p>
                                         </a>
                                     </div>
                                     <div id="profile-nav" class="collapse list-group bg-trans">
 
-                                        <a href="" class="list-group-item">
+                                        <a href="http://toexpress.cl" class="list-group-item">
                                             <i class="demo-pli-unlock icon-lg icon-fw"></i> Salir
                                         </a>
                                     </div>
@@ -354,26 +354,6 @@
           						                </a>
 
           						            </li>
-
-                                  <li class="list-header">Servicios</li>
-
-                                  <li>
-          						                <a href="mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Correo</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li>
-          						                <a href="pushNotification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Notificaciones Push</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-
 						            </ul>
 
                     <!--================================-->

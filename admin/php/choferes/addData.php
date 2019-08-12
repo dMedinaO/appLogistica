@@ -10,7 +10,8 @@
 	$phone = $_REQUEST['phone'];
 	$email = $_REQUEST['email'];
 
-	$query = "insert into chofer values ($rut, '$name', '$fecha', NOW(), NOW())";
+	$query = "insert into chofer values ($rut, '$name', '$fecha', NOW(), NOW(), NULL, NULL, NULL)";
+
 	$resultado = mysqli_query($conexion, $query);
 	$informacion = verificar_resultado( $resultado, $conexion, $query);
 
@@ -33,14 +34,14 @@
 
 	function verificar_resultado($resultado, $conexion, $query){
 
-		if (!$resultado) $informacion["respuesta"] = "ERROR";
+		if (!$resultado) $informacion["respuesta"] = "ERROR1";
 		else{
 
 			#hacemos la consulta...
 			$resultado2 = mysqli_query($conexion, $query);
 
 			#evaluamos...
-			if (!$resultado) $informacion["respuesta"] = "ERROR";
+			if (!$resultado) $informacion["respuesta"] = "ERROR2";
 			else{
 				$informacion["respuesta"] ="BIEN";
 			}

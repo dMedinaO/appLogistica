@@ -323,26 +323,7 @@
           						                </a>
 
           						            </li>
-
-                                  <li class="list-header">Servicios</li>
-
-                                  <li>
-          						                <a href="../mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Correo</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li>
-          						                <a href="../pushNotification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Notificaciones Push</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-
+                                
 						            </ul>
 
                     <!--================================-->
