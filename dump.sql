@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.62, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: dbLogistica
 -- ------------------------------------------------------
--- Server version	5.7.23-0ubuntu0.16.04.1
+-- Server version	5.5.62-0+deb8u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -557,4 +557,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-01 14:56:39
+-- Dump completed on 2019-08-11 21:52:23
