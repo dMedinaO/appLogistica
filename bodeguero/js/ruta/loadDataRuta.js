@@ -1,6 +1,8 @@
 $(window).on('load', function() {
 
 	listar();
+	listarPendiente();
+	//listarFinalizadas();
 	eliminar();
 	editar();
 
@@ -33,7 +35,6 @@ $(window).on('load', function() {
 						{"data":"fecha"},
 						{"data":"modifiedRuta"},
 						{"data":"rutChofer"},
-						{"data":"estado"},
 						{"defaultContent": "<button type='button' class='detalle btn btn-success'><i class='fa fa-file'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>	<button type='button' class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminar' ><i class='fa fa-trash-o'></i></button>"}
 					]
 	    });
@@ -42,6 +43,34 @@ $(window).on('load', function() {
 		obtener_id_eliminar("#rutaData tbody", t);
 		obtener_data_editar("#rutaData tbody", t);
 		detalleRuta("#rutaData tbody", t);
+	}
+
+	//listamos las pendientes
+	var listarPendiente = function(){
+		var t = $('#rutaDataPendiente').DataTable({
+				"responsive": true,
+				"language": idioma_espanol,
+				"dom": '<"newtoolbar">frtip',
+
+				"destroy":true,
+				"ajax":{
+					"method":"POST",
+					"url": "../php/ruta/showDataPendiente.php"
+				},
+
+				"columns":[
+					{"data":"nombreRuta"},
+					{"data":"jornadaRuta"},
+					{"data":"fecha"},
+					{"data":"modifiedRuta"},
+					{"data":"rutChofer"},
+					{"defaultContent": "<button type='button' class='detalle btn btn-success'><i class='fa fa-file'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>"}
+				]
+		});
+		$('#demo-custom-toolbar3').appendTo($("div.newtoolbar"));
+
+		obtener_data_editar("#rutaDataPendiente tbody", t);
+		detalleRuta("#rutaDataPendiente tbody", t);
 	}
 
 	var obtener_id_eliminar = function(tbody, table){
@@ -89,6 +118,7 @@ $(window).on('load', function() {
 			var name = $("#frmEditar #name").val();
 			var idrutas = $("#frmEditar #idrutas").val();
 			var jornada = $("#frmEditar #jornada").val();
+			var estado = $("#frmEditar #estado").val();
 
 			$.ajax({
 				method: "POST",
@@ -96,8 +126,8 @@ $(window).on('load', function() {
 				data: {
 					"name"   : name,
 					"idrutas"   : idrutas,
-					"jornada" : jornada
-
+					"jornada" : jornada,
+					"estado" : estado
 				}
 
 			}).done( function( info ){

@@ -10,7 +10,7 @@
 	$phone = $_REQUEST['phone'];
 	$email = $_REQUEST['email'];
 
-	$query = "insert into chofer values ($rut, '$name', '$fecha', NOW(), NOW())";
+	$query = "insert into chofer values ($rut, '$name', '$fecha', NOW(), NOW(), NULL, NULL, NULL)";
 	$resultado = mysqli_query($conexion, $query);
 	$informacion = verificar_resultado( $resultado, $conexion, $query);
 

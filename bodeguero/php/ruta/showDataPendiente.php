@@ -3,7 +3,7 @@
 	#script para hacer la carga de informacion desde la base de datos a la tabla
 	include ("../connection.php");
 
-	$query = "select * from ruta where ruta.estado = 'INICIADO'";
+	$query = "select * from ruta where ruta.estado = 'EN PROCESO'";
 	$resultado = mysqli_query($conexion, $query);
 
 	if (!$resultado){

@@ -185,7 +185,9 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
-
+                      <div class="panel-heading">
+      					     		<h3 class="panel-title">Rutas Iniciadas</h3>
+      					      </div>
                       <div class="panel-body">
                         <table id="rutaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
@@ -195,7 +197,6 @@
                               <th class="min-tablet">Fecha Inicio</th>
                               <th class="min-tablet">Fecha Término</th>
                               <th class="min-tablet">Chofer</th>
-                              <th class="min-tablet">Estado</th>
                               <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
@@ -204,6 +205,55 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Rutas Pendientes</h3>
+                      </div>
+                      <div class="panel-body">
+                        <table id="rutaDataPendiente" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th class="min-tablet">Nombre Ruta</th>
+                              <th class="min-tablet">Tipo Jornada</th>
+                              <th class="min-tablet">Fecha Inicio</th>
+                              <th class="min-tablet">Fecha Término</th>
+                              <th class="min-tablet">Chofer</th>
+                              <th class="min-tablet">Opciones</th>
+                              </tr>
+                            </thead>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Rutas Finalizadas</h3>
+                      </div>
+                      <div class="panel-body">
+                        <table id="rutaDataFinalizada" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th class="min-tablet">Nombre Ruta</th>
+                              <th class="min-tablet">Tipo Jornada</th>
+                              <th class="min-tablet">Fecha Inicio</th>
+                              <th class="min-tablet">Fecha Término</th>
+                              <th class="min-tablet">Chofer</th>
+                              <th class="min-tablet">Opciones</th>
+                              </tr>
+                            </thead>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
               <!--===================================================-->
               <!--End page content-->
@@ -293,14 +343,6 @@
                                   </li>
 
                                   <li class="list-header">Servicios</li>
-
-                                  <li>
-                                      <a href="../mailing/">
-                                          <i class="fa fa-envelope"></i>
-                                          <span class="menu-title">Correo</span><i class="arrow"></i>
-                                      </a>
-
-                                  </li>
 
                                   <li>
                                       <a href="../pushNotification/">
@@ -425,6 +467,19 @@
                         <option>Mañana</option>
                         <option>Tarde</option>
                         <option>Otros</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">Estado ruta <span class="required">*</span>
+                    </label>
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select id="jornada" class="form-control">
+                        <option>INICIADA</option>
+                        <option>EN PROCESO</option>
+                        <option>FINALIZADA</option>
                       </select>
                     </div>
                   </div>

@@ -289,7 +289,7 @@
                   </div>
 					      </div>
 					     </div>
-						</div>        
+						</div>
           </div>
         </div>
                 <!--===================================================-->
@@ -383,15 +383,7 @@
           						            </li>
 
                                   <li class="list-header">Servicios</li>
-
-                                  <li>
-          						                <a href="mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Correo</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
+                                                                
                                   <li>
           						                <a href="pushNotification/">
           						                    <i class="fa fa-bell"></i>
