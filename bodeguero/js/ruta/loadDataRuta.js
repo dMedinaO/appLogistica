@@ -2,7 +2,7 @@ $(window).on('load', function() {
 
 	listar();
 	listarPendiente();
-	//listarFinalizadas();
+	listarFinalizadas();
 	eliminar();
 	editar();
 
@@ -18,7 +18,7 @@ $(window).on('load', function() {
 
     //listamos los datos...
 		var listar = function(){
-	    var t = $('#rutaData').DataTable({
+	    var t1 = $('#rutaData').DataTable({
 	        "responsive": true,
 	        "language": idioma_espanol,
 	        "dom": '<"newtoolbar">frtip',
@@ -40,14 +40,14 @@ $(window).on('load', function() {
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
 
-		obtener_id_eliminar("#rutaData tbody", t);
-		obtener_data_editar("#rutaData tbody", t);
-		detalleRuta("#rutaData tbody", t);
+		obtener_id_eliminar("#rutaData tbody", t1);
+		obtener_data_editar("#rutaData tbody", t1);
+		detalleRuta("#rutaData tbody", t1);
 	}
 
 	//listamos las pendientes
 	var listarPendiente = function(){
-		var t = $('#rutaDataPendiente').DataTable({
+		var t2 = $('#rutaDataPendiente').DataTable({
 				"responsive": true,
 				"language": idioma_espanol,
 				"dom": '<"newtoolbar">frtip',
@@ -69,8 +69,36 @@ $(window).on('load', function() {
 		});
 		$('#demo-custom-toolbar3').appendTo($("div.newtoolbar"));
 
-		obtener_data_editar("#rutaDataPendiente tbody", t);
-		detalleRuta("#rutaDataPendiente tbody", t);
+		obtener_data_editar("#rutaDataPendiente tbody", t2);
+		detalleRuta("#rutaDataPendiente tbody", t2);
+	}
+
+	//listamos las pendientes
+	var listarFinalizadas = function(){
+		var t3 = $('#rutaDataFinalizada').DataTable({
+				"responsive": true,
+				"language": idioma_espanol,
+				"dom": '<"newtoolbar">frtip',
+
+				"destroy":true,
+				"ajax":{
+					"method":"POST",
+					"url": "../php/ruta/showDataFinalizada.php"
+				},
+
+				"columns":[
+					{"data":"nombreRuta"},
+					{"data":"jornadaRuta"},
+					{"data":"fecha"},
+					{"data":"modifiedRuta"},
+					{"data":"rutChofer"},
+					{"defaultContent": "<button type='button' class='detalle btn btn-success'><i class='fa fa-file'></i></button> <button type='button' class='editar btn btn-primary' data-toggle='modal' data-target='#myModalEditar'><i class='fa fa-pencil-square-o'></i></button>"}
+				]
+		});
+		$('#demo-custom-toolbar4').appendTo($("div.newtoolbar"));
+
+		obtener_data_editar("#rutaDataFinalizada tbody", t3);
+		detalleRuta("#rutaDataFinalizada tbody", t3);
 	}
 
 	var obtener_id_eliminar = function(tbody, table){
@@ -83,7 +111,20 @@ $(window).on('load', function() {
 	var detalleRuta = function(tbody, table){
 		$(tbody).on("click", "button.detalle", function(){
 			var data = table.row( $(this).parents("tr") ).data();
-			location.href="viewDetail.php?ruta="+data.idrutas;
+
+			var estado = data.estado;
+			if (estado == "INICIADO"){
+				location.href="viewDetail.php?ruta="+data.idrutas;
+			}
+
+			if (estado == "EN PROCESO"){
+				location.href="viewDetailPendiente.php?ruta="+data.idrutas;
+			}
+
+			if (estado == "TERMINADO"){
+				location.href="viewDetailFinalizada.php?ruta="+data.idrutas;
+			}
+
 		});
 	}
 
