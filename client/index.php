@@ -85,11 +85,9 @@
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <script src="js/profile/loadPedidos.js"></script>
-    <script src="js/productos/loadProductosRanking.js"></script>
-    <script src="js/profile/loadSucursales.js"></script>
-    <script src="js/profile/loadRecepcionistas.js"></script>
-    <script src="js/productos/loadProductosRechazados.js"></script>
+    <script src="js/index/loadDataPanel.js"></script>
+    <script src="js/index/loadDocumentsByDate.js"></script>
+
 </head>
 
 <!--TIPS-->
@@ -179,7 +177,7 @@
                     <!--Page Title-->
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <div id="page-title">
-                        <h1 class="page-header text-overflow">Dashboard Panel Values</h1>
+                        <h1 class="page-header text-overflow">Dashboard App Logística</h1>
 
                     </div>
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -191,66 +189,103 @@
                 <!--===================================================-->
                 <div id="page-content">
 
-					<div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
+                  <div class="row">
 
-		      			 <div class="panel-body">
-                   <div id="pedidosSucursal">
-                   </div>
-		      			 </div>
-		      			</div>
-      			</div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+                          <div class="media-left">
+                              <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                              <i class="fa fa-file fa-2x"></i>
+                              </span>
+                          </div>
+                          <div class="media-body">
+                              <p class="text-2x mar-no text-semibold text-main panel1"></p>
+                              <p class="text-muted mar-no">Documentos Iniciados</p>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+                          <div class="media-left">
+                              <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                              <i class="fa fa-car fa-2x"></i>
+                              </span>
+                          </div>
+                          <div class="media-body">
+                              <p class="text-2x mar-no text-semibold text-main panel2"></p>
+                              <p class="text-muted mar-no">Documentos Pendientes</p>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+                          <div class="media-left">
+                              <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                              <i class="fa fa-archive fa-2x"></i>
+                              </span>
+                          </div>
+                          <div class="media-body">
+                              <p class="text-2x mar-no text-semibold text-main panel3"></p>
+                              <p class="text-muted mar-no">Documentos Finalizados</p>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                      <div class="panel media middle pad-all">
+                          <div class="media-left">
+                              <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                              <i class="fa fa-smile-o fa-2x"></i>
+                              </span>
+                          </div>
+                          <div class="media-body">
+                              <p class="text-2x mar-no text-semibold text-main panel4"></p>
+                              <p class="text-muted mar-no">Comentarios Positivos</p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
 
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+        							<div class="panel">
+        					   		<div class="panel-heading">
+        					     		<h3 class="panel-title">Documentos por Fecha</h3>
+        					      </div>
+        					      <div class="panel-body">
+                          <div id="docsByDate">
+                          </div>
+        					      </div>
+        					     </div>
+        						</div>
+                  </div>
 
-		      			 <div class="panel-body">
-                   <div id="productosRechazados">
-                   </div>
-		      			 </div>
-		      			</div>
-      			</div>
+                  <div class="row">
 
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="panel">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+        							<div class="panel">
+        					   		<div class="panel-heading">
+        					     		<h3 class="panel-title">Recepción de Documentos</h3>
+        					      </div>
+        					      <div class="panel-body">
+                          <div id="docRecepcion">
+                          </div>
+        					      </div>
+        					     </div>
+        						</div>
 
-		      			 <div class="panel-body">
-                   <div id="pedidosRecepcionista">
-
-                   </div>
-		      			 </div>
-		      			</div>
-      			</div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-							<div class="panel">
-					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Historial de Pedidos</h3>
-					      </div>
-					      <div class="panel-body">
-                  <div id="pedidos"></div>
-					      </div>
-					     </div>
-						</div>
-          </div>
-
-          <div class="row">
-						<div class="col-sm-12 col-md-12 col-lg-12">
-							<div class="panel">
-					   		<div class="panel-heading">
-					     		<h3 class="panel-title">Ranking de Productos</h3>
-					      </div>
-					      <div class="panel-body">
-                  <div id="productos">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+        							<div class="panel">
+        					   		<div class="panel-heading">
+        					     		<h3 class="panel-title">Comentarios generados</h3>
+        					      </div>
+        					      <div class="panel-body">
+                          <div id="comentariosDoc">
+                          </div>
+        					      </div>
+        					     </div>
+        						</div>
 
                   </div>
-					      </div>
-					     </div>
-						</div>
-          </div>
 
         </div>
                 <!--===================================================-->
