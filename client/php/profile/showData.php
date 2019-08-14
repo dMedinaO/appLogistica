@@ -6,7 +6,7 @@
 	include ("../connection.php");
 
 	#$idUser = $_REQUEST['data'];
-	$idUser = 88888888;
+	$idUser = 96885930;
 	$query = "select * from cliente join user on (cliente.rutCliente = user.iduser) join device on (device.user = user.iduser) where user.iduser = $idUser";
 	$resultado = mysqli_query($conexion, $query);
 

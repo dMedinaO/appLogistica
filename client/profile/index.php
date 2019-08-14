@@ -78,12 +78,8 @@
     <!--Premium Line Icons [ OPTIONAL ]-->
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
 
-		<script src="../js/profile/loadPedidos.js"></script>
-		<script src="../js/profile/loadSucursales.js"></script>
-		<script src="../js/profile/loadProductos.js"></script>
-
 		<script src="../js/profile/loadUser.js"></script>
-
+    <script src="../js/profile/loadDocumentsByDate.js"></script>
 
 </head>
 
@@ -238,7 +234,7 @@
 																	</div>
 
 																	<div class="panel-body">
-																		<div id="pedidos">
+																		<div id="docsByDate">
 					                          </div>
 																	</div>
 																</div>
@@ -248,34 +244,7 @@
 													</div>
 	              		</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-6 col-md-6 col-lg-6">
 
-	                    <div class="panel">
-
-	                      <div class="panel-title">
-	                        Productos por tipo
-	                      </div>
-	                      <div class="panel-body">
-													<div id="productos"></div>
-	                      </div>
-	                    </div>
-	                  </div>
-
-										<div class="col-sm-6 col-md-6 col-lg-6">
-
-	                    <div class="panel">
-
-	                      <div class="panel-title">
-	                        Pedidos por sucursal
-	                      </div>
-	                      <div class="panel-body">
-													<div id="pedidosSucursal"></div>
-	                      </div>
-	                    </div>
-	                  </div>
-
-									</div>
                 <!--===================================================-->
                 <!--End page content-->
             </div>
@@ -336,54 +305,40 @@
 
           						            </li>
 
-                                  <li>
-          						                <a href="../recepcionistas/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Mis Recepcionistas</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li class="list-header">Pedidos y Productos</li>
+                                  <li class="list-header">Rutas y Documentos</li>
 
                                   <li>
-          						                <a href="../pedidos/">
-          						                    <i class="fa fa-home"></i>
-          						                    <span class="menu-title">Pedidos Entregados</span><i class="arrow"></i>
+          						                <a href="../rutasI/">
+          						                    <i class="fa fa-file"></i>
+          						                    <span class="menu-title">Rutas Iniciadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
 																	<li>
-          						                <a href="../pedidosPendientes/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Pedidos Pendientes</span><i class="arrow"></i>
+          						                <a href="../rutasP/">
+          						                    <i class="fa fa-map"></i>
+          						                    <span class="menu-title">Rutas Pendientes</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
                                   <li>
-          						                <a href="../productos/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Productos</span><i class="arrow"></i>
+          						                <a href="../rutasF/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Rutas Finalizadas</span><i class="arrow"></i>
           						                </a>
 
-          						            </li>                                  
-
-                                  <li class="list-header">Servicios</li>
-
-                                  <li>
-          						                <a href="../mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Contactar Admin</span><i class="arrow"></i>
-          						                </a>
           						            </li>
 
+                                  <li class="list-header">Comentarios y Recepcionistas</li>
+
                                   <li>
-          						                <a href="../notification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Contactar Chofer</span><i class="arrow"></i>
+          						                <a href="../comments/">
+          						                    <i class="fa fa-smile-o"></i>
+          						                    <span class="menu-title">View Data</span><i class="arrow"></i>
           						                </a>
+
           						            </li>
 						            </ul>
 

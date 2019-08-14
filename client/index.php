@@ -87,6 +87,8 @@
 
     <script src="js/index/loadDataPanel.js"></script>
     <script src="js/index/loadDocumentsByDate.js"></script>
+    <script src="js/index/recepcionDocs.js"></script>
+    <script src="js/index/comentariosGenerales.js"></script>
 
 </head>
 
@@ -353,54 +355,40 @@
 
           						            </li>
 
-                                  <li>
-          						                <a href="recepcionistas/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Mis Recepcionistas</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li class="list-header">Pedidos y Productos</li>
+                                  <li class="list-header">Rutas y Documentos</li>
 
                                   <li>
-          						                <a href="pedidos/">
-          						                    <i class="fa fa-home"></i>
-          						                    <span class="menu-title">Pedidos Entregados</span><i class="arrow"></i>
+          						                <a href="rutasI/">
+          						                    <i class="fa fa-file"></i>
+          						                    <span class="menu-title">Rutas Iniciadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
 																	<li>
-          						                <a href="pedidosPendientes/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Pedidos Pendientes</span><i class="arrow"></i>
+          						                <a href="rutasP/">
+          						                    <i class="fa fa-map"></i>
+          						                    <span class="menu-title">Rutas Pendientes</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
                                   <li>
-          						                <a href="productos/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Productos</span><i class="arrow"></i>
+          						                <a href="rutasF/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Rutas Finalizadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
-                                  <li class="list-header">Servicios</li>
+                                  <li class="list-header">Comentarios y Recepcionistas</li>
 
                                   <li>
-          						                <a href="mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Contactar Admin</span><i class="arrow"></i>
+          						                <a href="comments/">
+          						                    <i class="fa fa-smile-o"></i>
+          						                    <span class="menu-title">View Data</span><i class="arrow"></i>
           						                </a>
-          						            </li>
 
-                                  <li>
-          						                <a href="notification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Contactar Chofer</span><i class="arrow"></i>
-          						                </a>
           						            </li>
 						            </ul>
 

@@ -78,6 +78,16 @@
     <link href="../plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
     <!--Premium Line Icons [ OPTIONAL ]-->
     <link href="../premium/icon-sets/icons/line-icons/premium-line-icons.min.css" rel="stylesheet">
+
+    <!-- para los higcharts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="../js/ruta/loadDataRutaF.js"></script>
+
 </head>
 
 <!--TIPS-->
@@ -167,7 +177,7 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Mis Recepcionistas</h1>
+                      <h1 class="page-header text-overflow">Mis Rutas Finalizadas</h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -179,205 +189,29 @@
               <!--===================================================-->
               <div id="page-content">
 
-        <div class="row">
-
-          <div class="col-sm-3 col-md-3">
-
-                  <!-- Contact Widget -->
-                  <!---------------------------------->
-                  <div class="panel pos-rel">
-                      <div class="pad-all text-center">
-                          <div class="widget-control">
-
-                          </div>
-                          <a href="#">
-                              <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/2.png">
-                              <p class="text-lg text-semibold mar-no text-main">Recepcionista 01</p>
-                              <br>
-
-                              <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="text-sm">Teléfono</p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="text-sm">+569 12345678</p>
-                                </div>
-                              </div>
-
-                              <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="text-sm">Correo</p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="text-sm">correo@gmail.com</p>
-                                </div>
-                              </div>
-
-                              <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="text-sm">Sucursal</p>
-                                </div>
-
-                                <div class="col-sm-6 col-md-6">
-                                    <p class="text-sm">Sucursal 01</p>
-                                </div>
-                              </div>
-                          </a>
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Rutas Finalizadas</h3>
                       </div>
-                  </div>
-                  <!---------------------------------->
-            </div>
-
-            <div class="col-sm-3 col-md-3">
-
-                    <!-- Contact Widget -->
-                    <!---------------------------------->
-                    <div class="panel pos-rel">
-                        <div class="pad-all text-center">
-                            <div class="widget-control">
-
-                            </div>
-                            <a href="#">
-                                <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/2.png">
-                                <p class="text-lg text-semibold mar-no text-main">Recepcionista 02</p>
-                                <br>
-
-                                <div class="row">
-                                  <div class="col-sm-6 col-md-6">
-                                      <p class="text-sm">Teléfono</p>
-                                  </div>
-
-                                  <div class="col-sm-6 col-md-6">
-                                      <p class="text-sm">+569 12345678</p>
-                                  </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="col-sm-6 col-md-6">
-                                      <p class="text-sm">Correo</p>
-                                  </div>
-
-                                  <div class="col-sm-6 col-md-6">
-                                      <p class="text-sm">correo@gmail.com</p>
-                                  </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="col-sm-6 col-md-6">
-                                      <p class="text-sm">Sucursal</p>
-                                  </div>
-
-                                  <div class="col-sm-6 col-md-6">
-                                      <p class="text-sm">Sucursal 02</p>
-                                  </div>
-                                </div>
-                            </a>
-                        </div>
+                      <div class="panel-body">
+                        <table id="rutaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th class="min-tablet">Nombre Ruta</th>
+                              <th class="min-tablet">Tipo Jornada</th>
+                              <th class="min-tablet">Fecha Inicio</th>
+                              <th class="min-tablet">Fecha Término</th>
+                              <th class="min-tablet">Chofer</th>
+                              <th class="min-tablet">Opciones</th>
+                              </tr>
+                            </thead>
+                          </table>
+                      </div>
                     </div>
-                    <!---------------------------------->
-              </div>
-
-              <div class="col-sm-3 col-md-3">
-
-                      <!-- Contact Widget -->
-                      <!---------------------------------->
-                      <div class="panel pos-rel">
-                          <div class="pad-all text-center">
-                              <div class="widget-control">
-
-                              </div>
-                              <a href="#">
-                                  <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/2.png">
-                                  <p class="text-lg text-semibold mar-no text-main">Recepcionista 03</p>
-                                  <br>
-
-                                  <div class="row">
-                                    <div class="col-sm-6 col-md-6">
-                                        <p class="text-sm">Teléfono</p>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <p class="text-sm">+569 12345678</p>
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col-sm-6 col-md-6">
-                                        <p class="text-sm">Correo</p>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <p class="text-sm">correo@gmail.com</p>
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col-sm-6 col-md-6">
-                                        <p class="text-sm">Sucursal</p>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <p class="text-sm">Sucursal 03</p>
-                                    </div>
-                                  </div>
-                              </a>
-                          </div>
-                      </div>
-                      <!---------------------------------->
-                </div>
-
-                <div class="col-sm-3 col-md-3">
-
-                        <!-- Contact Widget -->
-                        <!---------------------------------->
-                        <div class="panel pos-rel">
-                            <div class="pad-all text-center">
-                                <div class="widget-control">
-
-                                </div>
-                                <a href="#">
-                                    <img alt="Profile Picture" class="img-lg img-circle mar-ver" src="../img/profile-photos/2.png">
-                                    <p class="text-lg text-semibold mar-no text-main">Recepcionista 04</p>
-                                    <br>
-
-                                    <div class="row">
-                                      <div class="col-sm-6 col-md-6">
-                                          <p class="text-sm">Teléfono</p>
-                                      </div>
-
-                                      <div class="col-sm-6 col-md-6">
-                                          <p class="text-sm">+569 12345678</p>
-                                      </div>
-                                    </div>
-
-                                    <div class="row">
-                                      <div class="col-sm-6 col-md-6">
-                                          <p class="text-sm">Correo</p>
-                                      </div>
-
-                                      <div class="col-sm-6 col-md-6">
-                                          <p class="text-sm">correo@gmail.com</p>
-                                      </div>
-                                    </div>
-
-                                    <div class="row">
-                                      <div class="col-sm-6 col-md-6">
-                                          <p class="text-sm">Sucursal</p>
-                                      </div>
-
-                                      <div class="col-sm-6 col-md-6">
-                                          <p class="text-sm">Sucursal 04</p>
-                                      </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!---------------------------------->
                   </div>
-        </div>
-
+                </div>
               </div>
               <!--===================================================-->
               <!--End page content-->
@@ -441,54 +275,40 @@
 
           						            </li>
 
-                                  <li>
-          						                <a href="../recepcionistas/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Mis Recepcionistas</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li class="list-header">Pedidos y Productos</li>
+                                  <li class="list-header">Rutas y Documentos</li>
 
                                   <li>
-          						                <a href="../pedidos/">
-          						                    <i class="fa fa-home"></i>
-          						                    <span class="menu-title">Pedidos Entregados</span><i class="arrow"></i>
+          						                <a href="../rutasI/">
+          						                    <i class="fa fa-file"></i>
+          						                    <span class="menu-title">Rutas Iniciadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
 																	<li>
-          						                <a href="../pedidosPendientes/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Pedidos Pendientes</span><i class="arrow"></i>
+          						                <a href="../rutasP/">
+          						                    <i class="fa fa-map"></i>
+          						                    <span class="menu-title">Rutas Pendientes</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
                                   <li>
-          						                <a href="../productos/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Productos</span><i class="arrow"></i>
+          						                <a href="../rutasF/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Rutas Finalizadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
-                                
-                                  <li class="list-header">Servicios</li>
+
+                                  <li class="list-header">Comentarios y Recepcionistas</li>
 
                                   <li>
-          						                <a href="../mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Contactar Admin</span><i class="arrow"></i>
+          						                <a href="../comments/">
+          						                    <i class="fa fa-smile-o"></i>
+          						                    <span class="menu-title">View Data</span><i class="arrow"></i>
           						                </a>
-          						            </li>
 
-                                  <li>
-          						                <a href="../notification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Contactar Chofer</span><i class="arrow"></i>
-          						                </a>
           						            </li>
 						            </ul>
                     <!--================================-->

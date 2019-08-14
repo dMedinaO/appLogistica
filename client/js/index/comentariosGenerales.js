@@ -1,14 +1,14 @@
 $(function () {
 	var processed_json = new Array();
-	$.getJSON('php/index/recepcionDocs.php', function(data) {
+	$.getJSON('php/index/comentariosGenerales.php', function(data) {
 		// Populate series
 		for (i = 0; i < data.length; i++){
 			var cantidad = parseInt(data[i].cantidad);
-			processed_json.push([data[i].receptor, cantidad]);
+			processed_json.push([data[i].motivo, cantidad]);
 		}
 
 		// draw chart
-        $('#docRecepcion').highcharts({
+        $('#comentariosDoc').highcharts({
 			chart: {
 				plotBackgroundColor: null,
 				plotBorderWidth: null,

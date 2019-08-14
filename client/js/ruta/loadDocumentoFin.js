@@ -1,16 +1,6 @@
-
-// Tables-DataTables.js
-// ====================================================================
-// This file should not be included in your project.
-// This is just a sample how to initialize plugins or components.
-//
-// - ThemeOn.net -
-
-
-
 $(window).on('load', function() {
 
-	listarSucursal();
+	listar();
 
 });
     // DATA TABLES
@@ -22,9 +12,10 @@ $(window).on('load', function() {
 
     $.fn.DataTable.ext.pager.numbers_length = 5;
 
-		//listamos los datos...
-		var listarSucursal = function(){
-	    var t = $('#bodegaData').DataTable({
+    //listamos los datos...
+		var listar = function(){
+			var rutaID = getQuerystring('ruta');
+	    var t = $('#rutaDetalle').DataTable({
 	        "responsive": true,
 	        "language": idioma_espanol,
 	        "dom": '<"newtoolbar">frtip',
@@ -32,21 +23,31 @@ $(window).on('load', function() {
 					"destroy":true,
 					"ajax":{
 						"method":"POST",
-						"url": "../php/sucursales/showData.php"
+						"url": "../php/ruta/documentosEnRutaFinalizada.php?ruta="+rutaID
 					},
 
 					"columns":[
-						{"data":"region"},
-						{"data":"comuna"},
-						{"data":"ciudad"},
-						{"data":"direccionValue"},
-						{"data":"createdDireccion"},
-						{"data":"modifiedDireccion"}
+						{"data":"folio"},
+						{"data":"nombreCliente"},
+						{"data":"receptor"},
+						{"data":"estado"},
+						{"data":"motivo"},
+						{"defaultContent": "<button type='button' class='viewImage btn btn-success'><i class='fa fa-picture-o'></i></button>"}
 					]
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
+
+		viewImageButton("#rutaDetalle tbody", t);
+
 	}
 
+	var viewImageButton = function(tbody, table){
+		$(tbody).on("click", "button.viewImage", function(){
+			var data = table.row( $(this).parents("tr") ).data();
+			var path = data.path;
+			location.href="../../webservice/images/"+path;
+		});
+	}
 
 	var idioma_espanol = {
 	    "sProcessing":     "Procesando...",
@@ -72,3 +73,11 @@ $(window).on('load', function() {
 	        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
 	    }
 	}
+
+	//funcion para recuperar la clave del valor obtenido por paso de referencia
+	function getQuerystring(key) {
+		var url_string = window.location;
+		var url = new URL(url_string);
+		var c = url.searchParams.get(key);
+		return c;
+	};

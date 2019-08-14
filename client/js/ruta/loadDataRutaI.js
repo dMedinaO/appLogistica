@@ -1,16 +1,6 @@
-
-// Tables-DataTables.js
-// ====================================================================
-// This file should not be included in your project.
-// This is just a sample how to initialize plugins or components.
-//
-// - ThemeOn.net -
-
-
-
 $(window).on('load', function() {
 
-	listarSucursal();
+	listar();
 
 });
     // DATA TABLES
@@ -22,9 +12,9 @@ $(window).on('load', function() {
 
     $.fn.DataTable.ext.pager.numbers_length = 5;
 
-		//listamos los datos...
-		var listarSucursal = function(){
-	    var t = $('#bodegaData').DataTable({
+    //listamos los datos...
+		var listar = function(){
+	    var t1 = $('#rutaData').DataTable({
 	        "responsive": true,
 	        "language": idioma_espanol,
 	        "dom": '<"newtoolbar">frtip',
@@ -32,21 +22,31 @@ $(window).on('load', function() {
 					"destroy":true,
 					"ajax":{
 						"method":"POST",
-						"url": "../php/sucursales/showData.php"
+						"url": "../php/ruta/showDataI.php"
 					},
 
 					"columns":[
-						{"data":"region"},
-						{"data":"comuna"},
-						{"data":"ciudad"},
-						{"data":"direccionValue"},
-						{"data":"createdDireccion"},
-						{"data":"modifiedDireccion"}
+						{"data":"nombreRuta"},
+						{"data":"jornadaRuta"},
+						{"data":"fecha"},
+						{"data":"modifiedRuta"},
+						{"data":"rutChofer"},
+						{"defaultContent": "<button type='button' class='detalle btn btn-success'><i class='fa fa-file'></i></button>"}
 					]
 	    });
 	    $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
+
+		detalleRuta("#rutaData tbody", t1);
 	}
 
+	var detalleRuta = function(tbody, table){
+		$(tbody).on("click", "button.detalle", function(){
+			var data = table.row( $(this).parents("tr") ).data();
+
+			location.href="viewDetail.php?ruta="+data.idrutas;
+
+		});
+	}
 
 	var idioma_espanol = {
 	    "sProcessing":     "Procesando...",

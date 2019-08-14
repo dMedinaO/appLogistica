@@ -84,17 +84,9 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
 
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <script src="../js/productos/loadProductosRanking.js"></script>
-    <script src="../js/productos/loadProductosSolicitados.js"></script>
-    <script src="../js/productos/loadProductosRechazados.js"></script>
-    <script src="../js/productos/loadHistoryProductos.js"></script>
+    <script src="../js/ruta/loadDataRutaP.js"></script>
 
 </head>
 
@@ -185,7 +177,7 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Mis Productos</h1>
+                      <h1 class="page-header text-overflow">Mis Rutas Pendientes</h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -201,67 +193,18 @@
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
                       <div class="panel-heading">
-                        <h3 class="panel-title">Ranking de productos solicitados</h3>
-                       </div>
-                       <div class="panel-body">
-                         <div id="productos">
-                         </div>
-                       </div>
-                      </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-6">
-
-                    <div class="panel">
-
-                      <div class="panel-title">
-                        Productos solicitados
+                        <h3 class="panel-title">Rutas Pendientes</h3>
                       </div>
                       <div class="panel-body">
-                        <div id="productosSolicitados"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-6 col-lg-6">
-
-                    <div class="panel">
-
-                      <div class="panel-title">
-                        Productos rechazados
-                      </div>
-                      <div class="panel-body">
-                        <div id="productosRechazados"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-12 col-md-12 col-lg-12">
-
-                    <div class="panel">
-
-                      <div class="panel-title">
-                        Historial de Productos
-                      </div>
-                      <div class="panel-body">
-                        <table id="pedidosDespacho" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="rutaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                              <th class="min-tablet">Bodega</th>
-                              <th class="min-tablet">Fecha Entrega</th>
-                              <th class="min-tablet">Recep.</th>
-                              <th class="min-tablet">Documento</th>
+                              <th class="min-tablet">Nombre Ruta</th>
+                              <th class="min-tablet">Tipo Jornada</th>
+                              <th class="min-tablet">Fecha Inicio</th>
+                              <th class="min-tablet">Fecha Término</th>
                               <th class="min-tablet">Chofer</th>
-                              <th class="min-tablet">Detalle</th>
-                              <th class="min-tablet">Producto</th>
-                              <th class="min-tablet">Código</th>
-                              <th class="min-tablet">Cantidad</th>
-                              <th class="min-tablet">Pedido</th>
-
+                              <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
                           </table>
@@ -332,54 +275,40 @@
 
           						            </li>
 
-                                  <li>
-          						                <a href="../recepcionistas/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Mis Recepcionistas</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li class="list-header">Pedidos y Productos</li>
+                                  <li class="list-header">Rutas y Documentos</li>
 
                                   <li>
-          						                <a href="../pedidos/">
-          						                    <i class="fa fa-home"></i>
-          						                    <span class="menu-title">Pedidos Entregados</span><i class="arrow"></i>
+          						                <a href="../rutasI/">
+          						                    <i class="fa fa-file"></i>
+          						                    <span class="menu-title">Rutas Iniciadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
 																	<li>
-          						                <a href="../pedidosPendientes/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Pedidos Pendientes</span><i class="arrow"></i>
+          						                <a href="../rutasP/">
+          						                    <i class="fa fa-map"></i>
+          						                    <span class="menu-title">Rutas Pendientes</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
                                   <li>
-          						                <a href="../productos/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Productos</span><i class="arrow"></i>
+          						                <a href="../rutasF/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Rutas Finalizadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
-                                  <li class="list-header">Servicios</li>
+                                  <li class="list-header">Comentarios y Recepcionistas</li>
 
                                   <li>
-          						                <a href="../mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Contactar Admin</span><i class="arrow"></i>
+          						                <a href="../comments/">
+          						                    <i class="fa fa-smile-o"></i>
+          						                    <span class="menu-title">View Data</span><i class="arrow"></i>
           						                </a>
-          						            </li>
 
-                                  <li>
-          						                <a href="../notification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Contactar Chofer</span><i class="arrow"></i>
-          						                </a>
           						            </li>
 						            </ul>
                     <!--================================-->

@@ -84,16 +84,9 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
 
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    
-    <script src="../js/profile/loadPedidos.js"></script>
-    <script src="../js/profile/loadSucursales.js"></script>
-    <script src="../js/profile/loadRecepcionistas.js"></script>
-    <script src="../js/profile/loadPedidosData.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="../js/ruta/loadDataRutaI.js"></script>
 
 </head>
 
@@ -184,7 +177,7 @@
                   <!--Page Title-->
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                   <div id="page-title">
-                      <h1 class="page-header text-overflow">Mis Pedidos Recibidos</h1>
+                      <h1 class="page-header text-overflow">Mis Rutas Iniciadas</h1>
 
                   </div>
                   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -197,122 +190,21 @@
               <div id="page-content">
 
                 <div class="row">
-
-                  <div class="col-lg-3 col-md-3">
-                    <div class="panel media middle pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
-                            <i class="fa fa-users fa-2x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <p class="text-2x mar-no text-semibold text-main">36</p>
-                            <p class="text-muted mar-no">Recep. con más pedidos</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-3">
-                    <div class="panel media middle pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
-                            <i class="fa fa-institution fa-2x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <p class="text-2x mar-no text-semibold text-main countries">67</p>
-                            <p class="text-muted mar-no">Sucursal con más Pedidos</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-3">
-                    <div class="panel media middle pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
-                            <i class="fa fa-comments fa-2x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <p class="text-2x mar-no text-semibold text-main">4</p>
-                            <p class="text-muted mar-no">Comentarios Negativos</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-3">
-                    <div class="panel media middle pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-primary">
-                            <i class="fa fa-code-fork fa-2x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <p class="text-2x mar-no text-semibold text-main">3</p>
-                            <p class="text-muted mar-no">Pedidos en espera</p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="panel">
                       <div class="panel-heading">
-                        <h3 class="panel-title">Pedidos Solicitados en el tiempo</h3>
-                       </div>
-                       <div class="panel-body">
-                         <div id="pedidos">
-                         </div>
-                       </div>
-                      </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-6">
-
-                    <div class="panel">
-
-                      <div class="panel-title">
-                        Pedidos por sucursal
+                        <h3 class="panel-title">Rutas Iniciadas</h3>
                       </div>
                       <div class="panel-body">
-                        <div id="pedidosSucursal"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-6 col-lg-6">
-
-                    <div class="panel">
-
-                      <div class="panel-title">
-                        Pedidos por Recepcionista
-                      </div>
-                      <div class="panel-body">
-                        <div id="pedidosRecepcionista"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-12 col-md-12 col-lg-12">
-
-                    <div class="panel">
-
-                      <div class="panel-title">
-                        Historial de Pedidos
-                      </div>
-                      <div class="panel-body">
-                        <table id="pedidosDespacho" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="rutaData" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                              <th class="min-tablet">Bodega</th>
-                              <th class="min-tablet">Fecha Entrega</th>
-                              <th class="min-tablet">Recepcionado</th>
-                              <th class="min-tablet">Documento</th>
-                              <th class="min-tablet">Despachado</th>
+                              <th class="min-tablet">Nombre Ruta</th>
+                              <th class="min-tablet">Tipo Jornada</th>
+                              <th class="min-tablet">Fecha Inicio</th>
+                              <th class="min-tablet">Fecha Término</th>
                               <th class="min-tablet">Chofer</th>
-                              <th class="min-tablet">Detalle</th>
+                              <th class="min-tablet">Opciones</th>
                               </tr>
                             </thead>
                           </table>
@@ -383,54 +275,40 @@
 
           						            </li>
 
-                                  <li>
-          						                <a href="../recepcionistas/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Mis Recepcionistas</span><i class="arrow"></i>
-          						                </a>
-
-          						            </li>
-
-                                  <li class="list-header">Pedidos y Productos</li>
+                                  <li class="list-header">Rutas y Documentos</li>
 
                                   <li>
-          						                <a href="../pedidos/">
-          						                    <i class="fa fa-home"></i>
-          						                    <span class="menu-title">Pedidos Entregados</span><i class="arrow"></i>
+          						                <a href="../rutasI/">
+          						                    <i class="fa fa-file"></i>
+          						                    <span class="menu-title">Rutas Iniciadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
 																	<li>
-          						                <a href="../pedidosPendientes/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Pedidos Pendientes</span><i class="arrow"></i>
+          						                <a href="../rutasP/">
+          						                    <i class="fa fa-map"></i>
+          						                    <span class="menu-title">Rutas Pendientes</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
                                   <li>
-          						                <a href="../productos/">
-          						                    <i class="fa fa-users"></i>
-          						                    <span class="menu-title">Productos</span><i class="arrow"></i>
+          						                <a href="../rutasF/">
+          						                    <i class="fa fa-car"></i>
+          						                    <span class="menu-title">Rutas Finalizadas</span><i class="arrow"></i>
           						                </a>
 
           						            </li>
 
-                                  <li class="list-header">Servicios</li>
+                                  <li class="list-header">Comentarios y Recepcionistas</li>
 
                                   <li>
-          						                <a href="../mailing/">
-          						                    <i class="fa fa-envelope"></i>
-          						                    <span class="menu-title">Contactar Admin</span><i class="arrow"></i>
+          						                <a href="../comments/">
+          						                    <i class="fa fa-smile-o"></i>
+          						                    <span class="menu-title">View Data</span><i class="arrow"></i>
           						                </a>
-          						            </li>
 
-                                  <li>
-          						                <a href="../notification/">
-          						                    <i class="fa fa-bell"></i>
-          						                    <span class="menu-title">Contactar Chofer</span><i class="arrow"></i>
-          						                </a>
           						            </li>
 						            </ul>
                     <!--================================-->
