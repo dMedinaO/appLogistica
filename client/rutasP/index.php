@@ -213,7 +213,7 @@
 
 
                             moment.locale('es');
-                            var map = L.map('map').setView([-33.43975710434886, -70.60591958516238], 13);
+                            var map = L.map('map').setView([-33.4489, -70.6693], 13);
 
                             // se define que mapa se utilizará.
                             var capaMapa = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -231,7 +231,7 @@
                                     // se eliminan los marcadores del mapa y se dibujan nuevamente
                                     capaMarcadores.clearLayers();
                                     result.map(function(d){
-                                        let last = moment(d.fecha);
+                                        let last = moment(d.ultimaActualizacion, "YYYY-MM-DD HH:mm:ss");
                                         let marker = L.marker([d.latitud, d.longitud]);
                                         marker.bindPopup(`Chofer: ${d.nombre}<br> A las: ${last.format('h:mm a [del] DD/MM/YYYY')}`);
 
